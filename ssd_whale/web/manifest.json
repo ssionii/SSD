@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "SSD",
+  "description": "슫",
+  "version": "1.2",
+
+  "sidebar_action": {
+    "default_page": "docs.html",
+
+    "default_title": "SSD",
+    "use_navigation_bar": true,
+    "mobile_user_agent": true
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/doc.css" type="text/css" rel="stylesheet" />
+    <link href="css/general.css" type="text/css" rel="stylesheet" />
+    <title>Title</title>
+
+
+</head>
+<body >
+<div class="docs_fixed_top" id="a">
+    <div class="docs_header" id="b">
+        <div id="docs_icon" id="c"></div>
+        <!--<div id="docs_title" contenteditable="true" onkeyup="chkword(this,10)">
+            ㅇ
+        </div>-->
+        <input type="text" value="제목을 입력하세요." default id="docs_title" name="docs_title" onkeyup="chkword(this, 10)"/>
+        <button id="button2">버튼2</button>
+        <button id="button1">버튼1</button>
+        <img id="docs_submit" src="images/save-docs.png"/>
+        <img id="docs_menu" src="images/save-docs.png"/>
+    </div>
+
+    <div class="docs_add_element">
+        <div class="wrapper" style="text-align: center">
+            <img class="content" src ="images/emoticon-icon.png"/>
+            <span class="text">이모티콘</span>
+
+        </div>
+        <div class="wrapper" style="text-align: center">
+            <img class="content" src ="images/photo-icon.png"/>
+            <span class="text">그림</span>
+        </div>
+        <div class="wrapper" style="text-align: center">
+            <img class="content" src ="images/file-icon.png"/>
+            <span class="text">파일</span>
+
+        </div>
+        <div id="add_todo" class="wrapper" style="text-align: center">
+            <img class="content" src ="images/checklist-icon.png"/>
+            <span class="text">체크리스트</span>
+
+        </div>
+        <div class="wrapper" style="text-align: center">
+            <img class="content" src ="images/emoticon-icon.png"/>
+            <span class="text">토글리스트</span>
+
+        </div>
+        <div class="wrapper" style="text-align: center">
+            <img class="content" src ="images/emoticon-icon.png"/>
+            <span class="text">표</span>
+
+        </div>
+        <script src="js/docs.js"></script>
+
+    </div>
+
+    <div class="docs_font_setting">
+        <div id="docs_font_family">
+            나눔고딕 <img src="images/angle-arrow-down.png" style="margin-right: 7px; margin-left: 10px"/>
+        </div>
+        <div id="docs_font_size">
+            15 <img src="images/angle-arrow-down.png" style="margin-left: 10px"/>
+        </div>
+        <div id="docs_font_style">
+            <div id="docs_font_bold" style="margin-left: 6px; margin-right:8px ">
+                <b style="font-size: 14px;">B</b>
+            </div>
+            <div id="docs_font_italic" style="margin-right:8px ">
+                <i style="font-size: 14px;">I</i>
+            </div>
+            <div id="docs_font_underline" style="margin-right: 6px">
+                <u style="font-size: 14px;">U</u>
+            </div>
+        </div>
+        <div id="docs_font_color_setting">
+            <img id="docs_font_color" style="margin-left: 3px; margin-right:8px " src="images/text-background-icon.png">
+            <img id="docs_font_background" style="margin-right: 3px" src="images/text-background-icon.png">
+        </div>
+        <div id="docs_font_align">
+            <img id="docs_align_left" style="margin-left: 6px; margin-right:4px " src="images/align-left-on.png">
+            <img id="docs_align_center" style="margin-right: 4px" src="images/align-center-off.png">
+            <img id="docs_align_right" style="margin-right: 4px" src="images/align-right-off.png">
+            <img id="docs_line_spacing" style="margin-right: 6px" src="images/line-spacing-off.png">
+
+        </div>
+    </div>
+
+</div>
+
+<div id="docs_contents_container" contenteditable="true" onkeyup="check()">
+    <div>
+        내용을 입력하세요.
+    </div>
+
+</div>
+<script  src="js/docs2.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+.docs_fixed_top {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
+.docs_header:after {clear:both; display: block; cotent: ''}
+.docs_header {
+    height: 54px;
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+}
+
+#docs_icon{
+    width: 40px;
+    height: 53px;
+    background-color: aqua;
+    margin-right: 10px;
+    float: left
+}
+
+#docs_title{
+    display: block;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+    float: left;
+    vertical-align: middle;
+
+}
+
+#docs_submit{
+    position: absolute;
+    right: 50px;
+}
+
+#docs_menu{
+    position: absolute;
+    right: 10px;
+}
+
+.docs_add_element:after {clear:both; display: block; cotent: ''}
+.docs_add_element{
+    width: 100%;
+    display: inline-block;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    border-bottom: 0.2px solid #c0c0c0;
+    border-top: 0.2px solid #c0c0c0;
+    margin: 0;
+}
+.docs_font_setting{
+    width: 100%;
+    height: 30px;
+    display: inline-block;
+    border-bottom: 0.2px solid #c0c0c0;
+    margin: 0;
+    line-height: 30px;
+}
+
+#docs_font_family, #docs_font_size, #docs_font_style, #docs_font_color_setting {
+    height: 100%;
+    border-right: 0.2px solid #c0c0c0;
+    padding: 0px 7px 0px 7px;
+    float: left;
+    margin : 0;
+    vertical-align: middle;
+}
+
+#docs_font_align{
+    height: 100%;
+    padding: 0px 7px 0px 7px;
+    float: left;
+    margin : 0;
+    vertical-align: middle;
+}
+
+#docs_font_bold, #docs_font_italic, #docs_font_underline, #docs_font_color, #docs_font_background {
+    display: inline-block;
+}
+
+#docs_align_left, #docs_align_center, #docs_align_right, #docs_line_spacing{
+    display: inline-block;
+}
+
+
+#docs_contents_container:focus{
+    outline: none;
+}
+
+
+#docs_contents_container{
+    position: relative;
+    top:125px;
+    bottom: 200px;
+    height: 633px; /* TODO: 이 부분은 해상도에 따라 조절 해야 함!!*/
+    width: 95%;
+    border: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 15px;
+    padding: 20px;
+}
