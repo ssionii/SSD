@@ -37,4 +37,3 @@ function toggle(id) {
     else
         obj.style.display="none";
 }
-

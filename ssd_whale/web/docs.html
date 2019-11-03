@@ -42,7 +42,7 @@
             <span class="text">체크리스트</span>
 
         </div>
-        <div class="wrapper" style="text-align: center">
+        <div id="add_toggle" class="wrapper" style="text-align: center">
             <img class="content" src ="images/emoticon-icon.png"/>
             <span class="text">토글리스트</span>
 
@@ -52,6 +52,7 @@
             <span class="text">표</span>
 
         </div>
+        <input type="file" onchange="addImage(this)"/>
         <script src="js/docs.js"></script>
 
     </div>
@@ -91,9 +92,10 @@
 
 <div id="docs_contents_container" contenteditable="true" onkeyup="check()">
     <div>
-        내용을 입력하세요.
-    </div>
+        내용을 입력하세요. background: rgb(255, 142, 80);
 
+
+    </div>
 </div>
 <script  src="js/docs2.js"></script>
 </body>
