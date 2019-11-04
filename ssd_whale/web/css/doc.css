@@ -103,3 +103,19 @@
     font-size: 15px;
     padding: 20px;
 }
+
+.toggle_button{
+    margin-right: 10px;
+}
+
+.toggle_child{
+    margin-left: 18px;
+}
+
+.toggle_child_text{
+    margin-left: 18px;
+}
+
+div[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}

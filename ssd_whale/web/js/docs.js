@@ -29,12 +29,3 @@ div_.onkeyup = function () {
         obj.value = str2;
     }
 }
-
-function toggle(id) {
-    obj.document.getElementById(id);
-
-    if(obj.style.display == "none")
-        obj.style.display ="inline";
-    else
-        obj.style.display="none";
-}

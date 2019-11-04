@@ -57,11 +57,11 @@ function click1() {
 }
 
 function addTodoList(){
+    alert('hey')
     var addFormDiv = document.getElementById("docs_contents_container");
 
     var str ='<input type="checkbox" id="todo'+todo_count+'" name="todo'+todo_count+'"style="margin-right: 8px; width: 20px; height: 20px;"/>'
     var addedDiv = document.createElement("div");
-    addedDiv.setAttribute("id", "todo_list"+todo_count);
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
     todo_count++;
@@ -70,38 +70,38 @@ function addTodoList(){
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
 
-    var str ='<div id="toggle_parent' + toggle_count + '"><img id="toggle_button'+toggle_count +'" src="images/toggle_right.png" ></div><div id="toggle_child' + toggle_count +'" class="toggle_child" style="display: none" contenteditable="true" aria-placeholder="하위 내용을 입력하세요."> </div>'
+    var str ='<div><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png" ></div><div id = toggle_child' + toggle_count + ' style="display: none;"><div class="toggle_child_text" contenteditable="true"  style=" height: 30px; background: silver;" data-text="하위 항목을 입력하세요."></div></div>'
     var addedDiv = document.createElement("div");
-    addedDiv.setAttribute("class", "toggle");
+    addedDiv.setAttribute("display", "inline-block")
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
 
-    setToggleEventListner('toggle_parent'+ toggle_count);
+    var emptyDiv = document.createElement("div");
+    emptyDiv.innerHTML = '<br>'
+    addFormDiv.appendChild(emptyDiv)
+
+    setToggleEventListener('toggle_button' + (toggle_count));
 }
 
-function setToggleEventListner(id) {
-    alert(id+"에 toggle 단다!");
+// Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
+function setToggleEventListener(id) {
+    var childId = 'toggle_child' + toggle_count;
+
     toggle_count++;
-    var childId = 'toggle_child' + id.substring(13)
-    document.getElementById(id).addEventListener('click', toggle(childId), false);
+    document.getElementById(id).addEventListener('click', function(ev){
+        var obj = document.getElementById(childId)
+        var img = document.getElementById(id);
+
+        if(obj.style.display == "none"){
+            obj.style.display = "block";
+            img.src = "images/toggle_down.png"
+        }else{
+            obj.style.display ="none";
+            img.src = "images/toggle_right.png"
+        }
+    });
 }
 
-function toggle(id) {
-    obj = document.getElementById(id);
-    alert("child의 아이디는 " + obj.id)
-    img = document.getElementById('toggle_button'+ id.substring(12));
-
-    if(obj.style.display == "none") {
-        obj.style.display = "inline";
-        img.src = "images/toggle_down.png"
-        alert(none)
-    }
-    else {
-        obj.style.display = "none";
-        img.src = "images/toggle_right.png"
-        alert(inline)
-    }
-}
 
 function addImage(input) {
     var addFormDiv = document.getElementById("docs_contents_container");
