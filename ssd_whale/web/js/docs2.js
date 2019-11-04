@@ -1,3 +1,37 @@
+document.getElementById('docs_submit').addEventListener('click',save,false);
+function save() {
+
+    if(document.getElementById("docs_title").value != null) {
+        alert(1);
+    }else{
+        alert("제목을 입력하세요")
+    }
+
+    /*var parms = {
+        doc_id: 0,
+        doc_title: document.getElementById("docs_title"),
+        doc_body: document.getElementById("docs_content_container").innerHTML,
+        user_id: "lsm0341"
+    }
+    var http = new XMLHttpRequest();
+
+     try {
+         http.open('Post',"/doc", false );
+
+         //http.setRequestHeader('Content-type', 'application/json');
+         http.send(JSON.stringify(parms));
+         if(http.readyState === 4 && http.status === 201){
+             var response = JSON.parse(xhttp.responseText);
+             document.getElementsByName("print").innerHTML = response.no;
+             alert(response.no);
+         }
+            alert("hi");
+     }catch (e) {
+            alert(e.toString());
+     }*/
+}
+
+document.getElementById('button1').addEventListener('click', click1,false);
 document.getElementById('button2').addEventListener('click', click2,false);
 document.getElementById("add_todo").addEventListener('click', addTodoList, false);
 document.getElementById("add_toggle").addEventListener('click', addToggleList, false);
@@ -14,10 +48,7 @@ function click2() {
     alert(obg);
 }
 
-document.getElementById('button1').addEventListener('click', click1,false);
-
 function click1() {
-
 
     var text_ = document.getElementById("docs_contents_container").innerText.split('\n');
     var text = "";
@@ -120,4 +151,34 @@ function addNotionTodoList(){
     var text = '<div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;"> <div> <div contenteditable="true"  style="max-width: 100%; padding-top: 3px; padding-bottom: 3px; text-align: left; text-decoration: line-through; opacity: 0.375;"></div></div><div></div></div>'
     var str = '<div class="todo" style="width: 100%; max-width: 100%; margin-top: 1px; margin-bottom: 1px; position: relative;"><div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill:inherit">' + button + text +'</div></div>'
 
+}
+
+
+function addImage(input) {
+    var addFormDiv = document.getElementById("docs_contents_container");
+
+    var str = '<img id="image'+ image_count +'"src=""/>';
+    var addedDiv = document.createElement("div");
+    addedDiv.setAttribute("id", "image");
+    addedDiv.innerHTML = str;
+    addFormDiv.appendChild(addedDiv);
+
+    setImageUrl(image_count, input)
+    image_count++;
+}
+
+function setImageUrl(count, input){
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        // Todo: 그림 크기 조절 가능하도록
+        reader.onload = function(e) {
+            var obj = document.getElementById('image' + count);
+            obj.setAttribute('src', e.target.result);
+            obj.setAttribute('width', "100px");
+            obj.setAttribute('height', "100px");
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }

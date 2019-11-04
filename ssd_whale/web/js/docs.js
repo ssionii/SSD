@@ -1,4 +1,3 @@
-
 function chkword(obj, maxByte) {
     var strValue = obj.value;
     var strLen = strValue.length;
