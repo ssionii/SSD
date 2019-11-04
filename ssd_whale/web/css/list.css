@@ -1,0 +1,36 @@
+.top_image{
+    margin-left: 16px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: #ff8c50;
+}
+
+.top_name{
+    margin-bottom: 20px;
+    margin-left: 9px;
+    margin-top: 4px;
+    float: left;
+    width: 34px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ff8d50;
+}
+
+.top_button{
+    float: right;
+    margin-right: 15px;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+}
+
+.line{
+    clear: both;
+}

@@ -6,7 +6,6 @@
     <link href="css/general.css" type="text/css" rel="stylesheet" />
     <title>Title</title>
 
-
 </head>
 <body >
 <div class="docs_fixed_top" id="a">
@@ -26,7 +25,6 @@
         <div class="wrapper" style="text-align: center">
             <img class="content" src ="images/emoticon-icon.png"/>
             <span class="text">이모티콘</span>
-
         </div>
         <div class="wrapper" style="text-align: center">
             <img class="content" src ="images/photo-icon.png"/>
@@ -37,12 +35,12 @@
             <span class="text">파일</span>
 
         </div>
-        <div id="add_todo" class="wrapper" style="text-align: center">
+        <div id="add_todo" class="wrapper" style="text-align: center" onclick="addTodoList()" >
             <img class="content" src ="images/checklist-icon.png"/>
             <span class="text">체크리스트</span>
 
         </div>
-        <div id="add_toggle" class="wrapper" style="text-align: center">
+        <div id="add_toggle"  class="wrapper" style="text-align: center">
             <img class="content" src ="images/emoticon-icon.png"/>
             <span class="text">토글리스트</span>
 
@@ -50,11 +48,9 @@
         <div class="wrapper" style="text-align: center">
             <img class="content" src ="images/emoticon-icon.png"/>
             <span class="text">표</span>
-
         </div>
         <input type="file" onchange="addImage(this)"/>
         <script src="js/docs.js"></script>
-
     </div>
 
     <div class="docs_font_setting">
@@ -92,9 +88,7 @@
 
 <div id="docs_contents_container" contenteditable="true" onkeyup="check()">
     <div>
-        내용을 입력하세요. background: rgb(255, 142, 80);
-
-
+        내용을 입력하세요. background:rgb(255,142,80);
     </div>
 </div>
 <script  src="js/docs2.js"></script>
