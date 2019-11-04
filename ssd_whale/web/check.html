@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="login">
+    <button onclick="get()">버튼</button>
+</div>
+</body>
+<script>
+    var url;
+    function get() {
+        alert(1);
+        var xhttp = new XMLHttpRequest();
+        try {
+            xhttp.open("GET", "http://13.209.193.228:3006/naver/naverlogin", false);
+            xhttp.send(null);
+            alert(xhttp.readyState);
+            alert(xhttp.status);
+            if (xhttp.readyState == 4 && xhttp.status == 201) {
+                var response = JSON.parse(xhttp.responseText);
+                alert(response.message);
+
+                alert(response.api_url);
+                //location.reload(response.api_url);
+                url = response.api_url;
+
+                var img = document.createElement('img');
+                img.onclick = function(){
+                    location.href = url;
+                }
+                img.src = 'http://static.nid.naver.com/oauth/small_g_in.PNG';
+                document.getElementById('login').appendChild(img);
+
+
+                alert("1");
+            }
+            alert("hi");
+        } catch (e) {
+            alert(e.toString());
+        }
+    }
+
+    function move() {
+    }
+
+</script>
+</html>

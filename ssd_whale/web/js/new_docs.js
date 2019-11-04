@@ -1,39 +1,27 @@
 var doc_id;
-var doc_content;
-var doc_title;
 
 window.onload = function () {
 
-    alert(1);
+    /*alert(1);
     var xhttp = new XMLHttpRequest();
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
-        xhttp.setRequestHeader("user_id", "sunny");
+        xhttp.open("GET", "http://13.209.193.228:3006/doc/add/sunny",false);
         xhttp.send(null);
         alert(xhttp.readyState);
         alert(xhttp.status);
         if(xhttp.readyState == 4 && xhttp.status == 201){
             var response = JSON.parse(xhttp.responseText);
             alert(response.message);
-            alert(response.content);
+            alert(response.doc_id);
             doc_id = response.doc_id;
-            doc_title = response.doc_title;
-            doc_content = response.content;
-            //alert(doc_content);
         }
         alert("hi");
     }catch (e) {
         alert(e.toString());
-    }
-
-    var iDiv = document.createElement('div');
-    iDiv.innerHTML = doc_content;
-    document.getElementById("docs_contents_container").innerHTML = doc_content;
-
-    document.getElementById("docs_title").value = doc_title;
+    }*/
 }
 
-var div_ = document.getElementById('docs_title');
+var div_ = document.getElementById('docs_title')
 div_.onkeyup = function () {
     var strValue = document.getElementById('docs_title').value;
     var strLen = strValue.length;
@@ -72,4 +60,3 @@ function toggle(id) {
     else
         obj.style.display="none";
 }
-

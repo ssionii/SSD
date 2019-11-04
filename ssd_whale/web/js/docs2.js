@@ -12,23 +12,32 @@ function save() {
     if(document.getElementById("docs_title").value === "제목을 입력하세요.") {
         alert("제목을 입력하세요.");
     }else{
-        alert(1);
-        var id = document.getElementById("docs_title");
-        var title = document.getElementById("docs_title");
-        var body =  document.getElementById("docs_content_container").innerHTML;
-        var user = "lsm0341";
+        //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
+        var did = doc_id;
+        alert(did);
+        var title = document.getElementById("docs_title").value;
+        alert(title);
+        var body =  document.getElementById("docs_contents_container").innerHTML;
+        alert(body);
+        var user = "sunny";
+        alert(user);
 
         var http = new XMLHttpRequest();
         try {
             http.open('Post',"http://13.209.193.228:3006/doc", false );
 
             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.send("user_id=" + user + "&doc_id" + id + "&doc_title" + title + "&doc_body" + body);
+            http.send("user_id=" + user + "&doc_id=" + did + "&doc_title=" + title + "&doc_body=" + body);
 
+            alert("hi");
+
+            alert(http.readyState);
+            alert(http.status);
             if(http.readyState === 4 && http.status === 201){
-                 var response = JSON.parse(xhttp.responseText);
-                 alert(response);
-                location.replace('list.html');
+                alert("hi");
+                 var response = JSON.parse(http.responseText);
+                 alert(response.message);
+                 alert(response.doc_id);
             }
             alert("hi");
         }catch (e) {
@@ -69,7 +78,6 @@ function addTodoList(){
 
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
-
     var str ='<div id="toggle_parent' + toggle_count + '"><img id="toggle_button'+toggle_count +'" src="images/toggle_right.png" ></div><div id="toggle_child' + toggle_count +'" class="toggle_child" style="display: none" contenteditable="true" aria-placeholder="하위 내용을 입력하세요."> </div>'
     var addedDiv = document.createElement("div");
     addedDiv.setAttribute("class", "toggle");
@@ -154,7 +162,7 @@ function addImage(input) {
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
 
-    setImageUrl(image_count, input)
+    //setImageUrl(image_count, input)
     image_count++;
 }
 
