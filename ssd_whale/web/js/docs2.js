@@ -1,13 +1,20 @@
 document.getElementById('docs_submit').addEventListener('click',save,false);
+document.getElementById('button1').addEventListener('click', click1,false);
+document.getElementById('button2').addEventListener('click', click2,false);
+document.getElementById("add_todo").addEventListener('click', addTodoList, false);
+document.getElementById("add_toggle").addEventListener('click', addToggleList, false);
+
+var todo_count = 0;
+var toggle_count = 0;
+var image_count = 0;
+
 function save() {
-
-    if(document.getElementById("docs_title").value != null) {
-        alert(1);
+    if(document.getElementById("docs_title").value === "제목을 입력하세요.") {
+        alert("제목을 입력하세요.");
     }else{
-        alert("제목을 입력하세요")
-    }
-
-    /*var parms = {
+        alert(1);
+        location.replace('list.html');
+        /*var parms = {
         doc_id: 0,
         doc_title: document.getElementById("docs_title"),
         doc_body: document.getElementById("docs_content_container").innerHTML,
@@ -29,16 +36,8 @@ function save() {
      }catch (e) {
             alert(e.toString());
      }*/
+    }
 }
-
-document.getElementById('button1').addEventListener('click', click1,false);
-document.getElementById('button2').addEventListener('click', click2,false);
-document.getElementById("add_todo").addEventListener('click', addTodoList, false);
-document.getElementById("add_toggle").addEventListener('click', addToggleList, false);
-
-var todo_count = 0;
-var toggle_count = 0;
-var image_count = 0;
 
 function click2() {
     alert(1);

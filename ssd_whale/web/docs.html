@@ -11,10 +11,7 @@
 <div class="docs_fixed_top" id="a">
     <div class="docs_header" id="b">
         <div id="docs_icon" id="c"></div>
-        <!--<div id="docs_title" contenteditable="true" onkeyup="chkword(this,10)">
-            ㅇ
-        </div>-->
-        <input type="text" value="제목을 입력하세요." default id="docs_title" name="docs_title" onkeyup="chkword(this, 10)"/>
+        <input type="text" value="제목을 입력하세요." id="docs_title" name="docs_title"/>
         <button id="button2">버튼2</button>
         <button id="button1">버튼1</button>
         <img id="docs_submit" src="images/save-docs.png"/>
@@ -86,12 +83,24 @@
 
 </div>
 
-<div id="docs_contents_container" contenteditable="true" onkeyup="check()">
+<div id="docs_contents_container" contenteditable="true">
     <div>
         내용을 입력하세요. background:rgb(255,142,80);
-        하이
     </div>
 </div>
+<!--
+<script type="text/javascript">
+    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
+
+    var div_ = document.getElementById('docs_contents_container');
+
+    div_.onkeyup = function () {
+        if(div_.innerHTML.match(regExUrl)){
+            var st = div_.innerHTML.match(regExUrl);
+            div_.innerHTML = div_.innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
+        }
+    }
+</script>-->
 <script  src="js/docs2.js"></script>
 </body>
 </html>
