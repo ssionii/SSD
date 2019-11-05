@@ -2,15 +2,17 @@
     position: fixed;
     top: 0px;
     left: 0px;
+    width: 600px;
     z-index: 999;
 }
 
-.docs_header:after {clear:both; display: block; cotent: ''}
+/*.docs_header:after {clear:both; display: block; cotent: ''}*/
 .docs_header {
     height: 54px;
     width: 100%;
+    /*
     position: relative;
-    vertical-align: middle;
+    vertical-align: middle;*/
 }
 
 #docs_icon{
@@ -18,27 +20,28 @@
     height: 53px;
     background-color: aqua;
     margin-right: 10px;
-    float: left
+    float: left;
 }
 
 #docs_title{
-    display: block;
+    /*display: block;*/
     font-size: 26px;
     font-weight: 600;
     text-align: left;
     float: left;
     vertical-align: middle;
+    margin-top: 10px;
 
 }
 
 #docs_submit{
-    position: absolute;
-    right: 50px;
+    float: right;
+    margin-right: 50px;
 }
 
 #docs_menu{
-    position: absolute;
-    right: 10px;
+    float: right;
+    margin-right: 15px;
 }
 
 
@@ -159,7 +162,9 @@ div[contentEditable=true]:empty:not(:focus):before{
 
 input:focus{
     outline: none;
+
 }
+
 .dropbtn {
     color: white;
     padding: 16px;
