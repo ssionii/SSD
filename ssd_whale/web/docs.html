@@ -4,31 +4,20 @@
     <meta charset="UTF-8">
     <link href="css/doc.css" type="text/css" rel="stylesheet" />
     <link href="css/general.css" type="text/css" rel="stylesheet" />
-    <script src="js/jquery-latest.min.js"></script>
-    <script src="js/docs.js"></script>
-    <script src="js/jspdf.min.js"></script>
-    <script src="js/html2canvas.min.js"></script>
     <title>Title</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
 </head>
-<body>
+<body >
 <div class="docs_fixed_top" id="a">
     <div class="docs_header" id="b">
         <div id="docs_icon" id="c"></div>
-        <input type="text" placeholder="제목을 입력하세요." id="docs_title" name="docs_title"/>
-        <button id="button3">버튼3</button>
-
+        <input type="text" value="제목을 입력하세요." id="docs_title" name="docs_title"/>
         <button id="button2">버튼2</button>
         <button id="button1">버튼1</button>
         <img id="docs_submit" src="images/save-docs.png"/>
-
-        <div class="dropdown">
-            <img class="dropbtn" src="images/save-docs.png">
-            <div class="dropdown-content">
-                <a href="#" id="doc_delete">문서삭제</a>
-                <a href="#" id="push">내보내기</a>
-                <a href="#">공유하기</a>
-            </div>
-        </div>
+        <img id="docs_menu" src="images/save-docs.png"/>
     </div>
 
     <div class="docs_add_element">
@@ -60,7 +49,7 @@
             <span class="text">표</span>
         </div>
         <input type="file" onchange="addImage(this)"/>
-        <script src="js/new_docs.js"></script>
+        <script src="js/docs.js"></script>
     </div>
 
     <div class="docs_font_setting">
@@ -96,28 +85,26 @@
 
 </div>
 
+
 <div id="docs_contents_container" contenteditable="true">
     <div>
         내용을 입력하세요. background:rgb(255,142,80);
     </div>
 </div>
-<script src=" js/pdf.js"></script>
 
-<script  src="js/docs2.js"></script>
+<!--
 <script type="text/javascript">
-    //var regExUrl = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    //var regExUrl = /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/;
+    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
 
     var div_ = document.getElementById('docs_contents_container');
 
-    var regExUrl = /^((http(s?))\:\/\/)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/
     div_.onkeyup = function () {
-        if(document.getElementById('docs_contents_container').innerHTML.match(regExUrl)){
-            alert(1);
-            var st = document.getElementById('docs_contents_container').innerHTML.match(regExUrl);
-            document.getElementById('docs_contents_container').innerHTML = document.getElementById('docs_contents_container').innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
+        if(div_.innerHTML.match(regExUrl)){
+            var st = div_.innerHTML.match(regExUrl);
+            div_.innerHTML = div_.innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
         }
     }
-</script>
+</script>-->
+<script  src="js/docs2.js"></script>
 </body>
 </html>
