@@ -103,8 +103,19 @@
 
 [contenteditable=true]:empty:before{
     content: attr(placeholder);
-    display: block;
+    display: inline;
 }
+
+[contenteditable=true]{
+    outline: none;
+}
+
+.todo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: pink;

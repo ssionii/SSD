@@ -8,7 +8,24 @@
     <script src="js/jquery-latest.min.js"></script>
     <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
+
+    <script src="path/jquery-3.3.1.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>/*
+        $('div[contenteditable=true]').keydown(function(e) {
+            // trap the return key being pressed
+            if (e.keyCode == 13) {
+                // insert 2 br tags (if only one br tag is inserted the cursor won't go to the second line)
+                document.execCommand('insertHTML', false, '<br><br>');
+                // prevent the default behaviour of return key pressed
+                return false;
+            }
+        });*/
+    $(".todo_text").keypress(function(e) {
+        if (e.keyCode == 13)
+            e.preventDefault();
+    });
+    </script>
 
 </head>
 <body>
@@ -87,9 +104,7 @@
     </div>
     <script src="js/docs.js"></script>
     <div id="docs_contents_container" contenteditable="true" onkeyup="">
-        <div>
 
-        </div>
     </div>
 </div>
 

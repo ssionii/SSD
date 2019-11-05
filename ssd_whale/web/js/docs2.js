@@ -38,6 +38,8 @@ function save() {
          }catch (e) {
              alert(e.toString());
          }*/
+
+        var addFormDiv = document.getElementById("docs_contents_container");
     }
 }
 
@@ -45,12 +47,54 @@ function save() {
 function addTodoList(){
     var addFormDiv = document.getElementById("docs_contents_container");
 
-    var str ='<input type="checkbox" id="todo'+todo_count+'" name="todo'+todo_count+'"style="margin-right: 8px; width: 20px; height: 20px;"/>'
+    //var str ='<input type="checkbox" id="todo'+todo_count+'" name="todo'+todo_count+'"style="margin-right: 8px; width: 20px; height: 20px;"/>'
+
+    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
     var addedDiv = document.createElement("div");
+    addedDiv.setAttribute('class', 'todo');
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
+
+    var emptyDiv = document.createElement("div");
+    emptyDiv.innerHTML = '<br>'
+    addFormDiv.appendChild(emptyDiv)
+
+
+    preventTodoEnter(todo_count);
+    addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
     todo_count++;
 }
+
+function addTodoButtonEventListener(buttonId, textId) {
+    document.getElementById(buttonId).addEventListener('click', function(ev) {
+        var button = document.getElementById(buttonId);
+        var text = document.getElementById(textId)
+
+        if(button.name == "off") {
+            button.src = "images/check_on.png";
+            button.name = "on";
+            text.style.textDecoration = "line-through";
+            text.style.color = "#aaaaaa"
+        }
+        else if(button.name == "on") {
+            button.src = "images/check_off.png";
+            button.name = "off";
+            text.style.textDecoration = "none";
+            text.style.color = "#000000"
+        }
+    })
+}
+
+function preventTodoEnter(count){
+    var id = 'todo_text' + (count-1);
+    $(id).keypress(function(e) {
+        if (e.keyCode == 13)
+            e.preventDefault();
+    });
+
+}
+
+
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
 
@@ -65,7 +109,9 @@ function addToggleList(){
 
     setToggleImgEventListener('toggle_button' + (toggle_count));
     setToggleTextColorEventListener(toggle_count)
+    preventToggleEnter(toggle_count)
 }
+
 
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
 function setToggleImgEventListener(id) {
@@ -87,17 +133,29 @@ function setToggleImgEventListener(id) {
 }
 
 function setToggleTextColorEventListener(count){
-    var obj = document.getElementById("toggle_parent_text" + (count-1));
-    obj.onkeypress(
-        function () {
-            alert(1)
-            this.color = rgb(0, 0, 0);
+    var parentId = 'toggle_parent_text' + (count-1);
+    var childeId = 'toggle_child_text' + (count-1);
+    $(parentId).keyup(function(e) {
+
+    });
+    $(childeId).keypress(function(e) {
+        if (e.keyCode == 13)
+            e.preventDefault();
+    });
+}
+
+function preventToggleEnter(count){
+    var parentId = 'toggle_parent_text' + (count-1);
+    var childeId = 'toggle_child_text' + (count-1);
+    $(parentId).keypress(function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
         }
-    )
-
-
-    var childId = document.getElementById('toggle_child_text' + count);
-
+    });
+    $(childeId).keypress(function(e) {
+        if (e.keyCode == 13)
+            e.preventDefault();
+    });
 }
 
 function addImage(input) {
@@ -114,7 +172,7 @@ function addImage(input) {
 }
 
 function setImageUrl(count, input){
-    if (input.files && input.files[0]) {
+    if (input.files && input.files[image_count]) {
         var reader = new FileReader();
 
         var size = prompt("사진의 크기를 입력해주세요");
@@ -125,7 +183,7 @@ function setImageUrl(count, input){
             obj.setAttribute('width', size+'px');
             obj.setAttribute('height', size+'px');
         }
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(input.files[image_count]);
     }
 }
 
