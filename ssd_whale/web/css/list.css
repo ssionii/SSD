@@ -36,5 +36,28 @@
 }
 
 .docdoc{
-    height: 60px;
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 50px;
+    padding-bottom: 10px;
+}
+
+.docdoc:hover{
+    background-color: orange;
+    opacity: 0.5;
+}
+.out{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#login_button{
+
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #ff8c50;
+    width: 200px;
+    height: 50px;
+    color: white;
 }

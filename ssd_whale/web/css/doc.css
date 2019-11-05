@@ -203,7 +203,3 @@ input:focus{
 
 .dropdown:hover .dropbtn {background-color: white;}
 
-.link{
-    text-decoration: underline;
-    color: blue;
-}
