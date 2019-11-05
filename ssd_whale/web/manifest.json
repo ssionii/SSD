@@ -9,6 +9,5 @@
       "default_title": "SSD",
       "use_navigation_bar": true,
       "mobile_user_agent": true
-    },
-  "permissions": ["storage"]
+    }
 }

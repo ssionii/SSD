@@ -5,7 +5,7 @@
     <link href="css/doc.css" type="text/css" rel="stylesheet" />
     <link href="css/general.css" type="text/css" rel="stylesheet" />
     <script src="js/jquery-latest.min.js"></script>
-    <script src="js/docs.js"></script>
+    <script src="js/new_docs.js"></script>
     <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <title>Title</title>
@@ -97,15 +97,13 @@
 </div>
 
 <div id="docs_contents_container" contenteditable="true">
-    <div>
-        내용을 입력하세요. background:rgb(255,142,80);
-    </div>
+
 </div>
 <script src=" js/pdf.js"></script>
 
 <script  src="js/docs2.js"></script>
 <script type="text/javascript">
-    //var regExUrl = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    /*//var regExUrl = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
     //var regExUrl = /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/;
 
     var div_ = document.getElementById('docs_contents_container');
@@ -116,6 +114,18 @@
             alert(1);
             var st = document.getElementById('docs_contents_container').innerHTML.match(regExUrl);
             document.getElementById('docs_contents_container').innerHTML = document.getElementById('docs_contents_container').innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
+        }
+    }*/
+    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}((\/{1})?)([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
+
+    var div = document.getElementById('div');
+
+    div.onkeyup = function(){
+        if(div.innerHTML.match(regExUrl)){
+            alert(1);
+            $("div").addClass("link");
+        } else {
+            $("div").removeClass("link");
         }
     }
 </script>

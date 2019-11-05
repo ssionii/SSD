@@ -1,26 +1,83 @@
+document.getElementById('docs_create_button').addEventListener('click',create,false);
+var list_count;
+var list;
+function structlist(){
+    var id;
+    var title;
+    var share;
+}
 window.onload = function () {
     /*var xhttp = new XMLHttpRequest();
-
+    alert(1);
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/auth/list", false);
+        xhttp.open("GET", "http://13.209.193.228:3006/doc/list/sunny", false);
         xhttp.send(null);
         if(xhttp.readyState == 4 && xhttp.status == 201){
-            alert(response.message);
             var response = JSON.parse(xhttp.responseText);
-            document.getElementsByName("print").innerHTML = response.no;
-            alert(response.no);
+            //alert(response.message);
+            list_count = response.list.length;
+            list = new Array(list_count);
+
+            for(var i = 0; i < list_count; i++){
+                list[i] = new structlist();
+                list[i].id = response.list[i].doc_id;
+                list[i].title = response.list[i].doc_title;
+                list[i].share = response.list[i].doc_is_share;
+                //alert(list[i].id + " " + list[i].title + " " + list[i].share);
+            }
         }
         alert("hi");
     }catch (e) {
         alert(e.toString());
     }*/
+    list_count = 2;
+    list = new Array(2);
+    list[0] = new structlist();
+    list[0].id = "599066f33c9405e4b1030dddf1bbbaaa4075";
+    list[0].title = "아자아자";
+    list[0].share = 0;
+    //alert(list[0].id + " " + list[0].title + " " + list[0].share);
+
+    list[1] = new structlist();
+    list[1].id = "225a921db007097b38080a7cd26bffc304e9";
+    list[1].title = "안뇽";
+    list[1].share = 1;
+    //alert(list[1].id + " " + list[1].title + " " + list[1].share);
+
+    for (var i = 0; i < list_count; i++){
+
+        var iDiv = document.createElement('div');
+        iDiv.setAttribute("class", "docdoc");
+        iDiv.setAttribute('onclick', 'something(this.id)')
+        iDiv.id = list[i].id + list[i].share;
+        iDiv.innerHTML = list[i].title;
+        document.getElementById("docs_list").appendChild(iDiv);
+        //alert(document.getElementById("docs_list").innerHTML)
+    }
 }
+function something(clicked_id)
+{
+    alert(clicked_id);
+    /*var xhttp = new XMLHttpRequest();
+    alert(1);
+    try {
+        xhttp.open("GET", "http://13.209.193.228:3006/doc/" + clicked_id, false);
+        xhttp.setRequestHeader("user_id", "sunny");
+        xhttp.send(null);
+        if(xhttp.readyState == 4 && xhttp.status == 201){
+            var response = JSON.parse(xhttp.responseText);
+            alert(response.message);
+            location.reload('docs.html');
+        }
 
-var doc_num = 0;
-
-document.getElementById('docs_create_button').addEventListener('click',create,false);
+        alert("hi");
+    }catch (e) {
+        alert(e.toString());
+    }
+*/
+    location.href = 'docs.html';
+}
 
 function create() {
-    location.href='docs.html';
+    location.href='new_docs.html';
 }
-
