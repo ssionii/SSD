@@ -105,27 +105,29 @@ function setToggleEventListener(id) {
 
 function addImage(input) {
     var addFormDiv = document.getElementById("docs_contents_container");
-
+    alert(1)
     var str = '<img id="image'+ image_count +'"src=""/>';
     var addedDiv = document.createElement("div");
-    addedDiv.setAttribute("id", "image");
+    addedDiv.setAttribute("id", "image" + image_count);
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
-
     setImageUrl(image_count, input)
-    image_count++;
+
 }
 
 function setImageUrl(count, input){
+    image_count++;
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         // Todo: 그림 크기 조절 가능하도록
         reader.onload = function(e) {
             var obj = document.getElementById('image' + count);
+
+            var size = prompt("사진의 크기를 입력해주세요");
             obj.setAttribute('src', e.target.result);
-            obj.setAttribute('width', "100px");
-            obj.setAttribute('height', "100px");
+            obj.setAttribute('width', '1000px');
+            obj.setAttribute('height',   '1000px');
         }
 
         reader.readAsDataURL(input.files[0]);
