@@ -12,31 +12,36 @@ function save() {
     if(document.getElementById("docs_title").value === "제목을 입력하세요.") {
         alert("제목을 입력하세요.");
     }else{
-        alert(1);
-        var id = document.getElementById("docs_title");
-        var title = document.getElementById("docs_title");
-        var body =  document.getElementById("docs_content_container").innerHTML;
-        var user = "lsm0341";
+        //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
+        var did = doc_id;
+        alert(did);
+        var title = document.getElementById("docs_title").value;
+        alert(title);
+        var body =  document.getElementById("docs_contents_container").innerHTML;
+        alert(body);
+        var user = "sunny";
+        alert(user);
 
-        var http = new XMLHttpRequest();
-        try {
-            http.open('Post',"http://13.209.193.228:3006/doc", false );
-
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.send("user_id=" + user + "&doc_id" + id + "&doc_title" + title + "&doc_body" + body);
-
-            if(http.readyState === 4 && http.status === 201){
-                 var response = JSON.parse(xhttp.responseText);
-                 alert(response);
-                location.replace('list.html');
-            }
-            alert("hi");
-        }catch (e) {
-            alert(e.toString());
-        }
+        /* var http = new XMLHttpRequest();
+         try {
+             http.open('Post',"http://13.209.193.228:3006/doc", false );
+             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             http.send("user_id=" + user + "&doc_id=" + did + "&doc_title=" + title + "&doc_body=" + body);
+             alert("hi");
+             alert(http.readyState);
+             alert(http.status);
+             if(http.readyState === 4 && http.status === 201){
+                 alert("hi");
+                  var response = JSON.parse(http.responseText);
+                  alert(response.message);
+                  alert(response.doc_id);
+             }
+             alert("hi");
+         }catch (e) {
+             alert(e.toString());
+         }*/
     }
 }
-
 function click2() {
     alert(1);
     var obg = document.getElementById("docs_contents_container").innerText;
@@ -105,27 +110,29 @@ function setToggleEventListener(id) {
 
 function addImage(input) {
     var addFormDiv = document.getElementById("docs_contents_container");
-
+    alert(1)
     var str = '<img id="image'+ image_count +'"src=""/>';
     var addedDiv = document.createElement("div");
-    addedDiv.setAttribute("id", "image");
+    addedDiv.setAttribute("id", "image" + image_count);
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
-
     setImageUrl(image_count, input)
-    image_count++;
+
 }
 
 function setImageUrl(count, input){
+    image_count++;
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         // Todo: 그림 크기 조절 가능하도록
         reader.onload = function(e) {
             var obj = document.getElementById('image' + count);
+
+            var size = prompt("사진의 크기를 입력해주세요");
             obj.setAttribute('src', e.target.result);
-            obj.setAttribute('width', "100px");
-            obj.setAttribute('height', "100px");
+            obj.setAttribute('width', '1000px');
+            obj.setAttribute('height',   '1000px');
         }
 
         reader.readAsDataURL(input.files[0]);
