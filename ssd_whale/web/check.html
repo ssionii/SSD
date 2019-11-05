@@ -2,48 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/general.css" type="text/css" rel="stylesheet"/>
+    <link href="css/login.css" type="text/css" rel="stylesheet" />
+    <script src="js/naveridlogin_js_sdk_2.0.0.js"></script>
     <title>Title</title>
 </head>
 <body>
-<div id="login">
-    <button onclick="get()">버튼</button>
+<div class="vertical_center">
+    <div class="horizontal_center">
+        <div id="naverIdLogin"></div>
+    </div>
 </div>
+<script src="js/login.js"></script>
+
 </body>
-<script>
-    var url;
-    function get() {
-
-        location.href = "https://sharesdocument.ml/naver/naverlogin";
-        /*alert(1);
-        var xhttp = new XMLHttpRequest();
-        try {
-            xhttp.open("GET", "https://sharesdocument.ml/naver/naverlogin", false);
-            xhttp.send(null);
-            alert(xhttp.readyState);
-            alert(xhttp.status);
-            if (xhttp.readyState == 4 && xhttp.status == 201) {
-                var response = JSON.parse(xhttp.responseText);
-                alert(response.message);
-
-                alert(response.api_url);
-                //location.reload(response.api_url);
-                url = response.api_url;
-
-                var img = document.createElement('img');
-                img.onclick = function(){
-                    //이것도 뒤로가기 되게 바꾸기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    location.href = url;
-                }
-                img.src = 'http://static.nid.naver.com/oauth/small_g_in.PNG';
-                document.getElementById('login').appendChild(img);
-
-
-                alert("1");
-            }
-            alert("hi");
-        } catch (e) {
-            alert(e.toString());
-        }*/
-    }
-</script>
 </html>
