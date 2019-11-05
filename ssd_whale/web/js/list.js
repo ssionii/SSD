@@ -15,7 +15,7 @@ window.onload = function () {
     /*var xhttp = new XMLHttpRequest();
     alert(1);
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/doc/list/sunny", false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/list/sunny", false);
         xhttp.send(null);
         if(xhttp.readyState == 4 && xhttp.status == 201){
             var response = JSON.parse(xhttp.responseText);
@@ -67,7 +67,7 @@ function something(clicked_id)
     /*var xhttp = new XMLHttpRequest();
     alert(1);
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/doc/" + clicked_id, false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/" + clicked_id, false);
         xhttp.setRequestHeader("user_id", "sunny");
         xhttp.send(null);
         if(xhttp.readyState == 4 && xhttp.status == 201){

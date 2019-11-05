@@ -7,7 +7,7 @@ window.onload = function () {
     /*alert(1);
     var xhttp = new XMLHttpRequest();
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
         xhttp.setRequestHeader("user_id", "sunny");
         xhttp.send(null);
         alert(xhttp.readyState);
@@ -32,7 +32,6 @@ window.onload = function () {
     var iDiv = document.createElement('div');
     iDiv.innerHTML = doc_content;
     document.getElementById("docs_contents_container").innerHTML = doc_content;
-
     document.getElementById("docs_title").value = doc_title;
 }
 

@@ -12,10 +12,12 @@
 <script>
     var url;
     function get() {
-        alert(1);
+
+        location.href = "https://sharesdocument.ml/naver/naverlogin";
+        /*alert(1);
         var xhttp = new XMLHttpRequest();
         try {
-            xhttp.open("GET", "http://13.209.193.228:3006/naver/naverlogin", false);
+            xhttp.open("GET", "https://sharesdocument.ml/naver/naverlogin", false);
             xhttp.send(null);
             alert(xhttp.readyState);
             alert(xhttp.status);
@@ -29,6 +31,7 @@
 
                 var img = document.createElement('img');
                 img.onclick = function(){
+                    //이것도 뒤로가기 되게 바꾸기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     location.href = url;
                 }
                 img.src = 'http://static.nid.naver.com/oauth/small_g_in.PNG';
@@ -40,11 +43,7 @@
             alert("hi");
         } catch (e) {
             alert(e.toString());
-        }
+        }*/
     }
-
-    function move() {
-    }
-
 </script>
 </html>

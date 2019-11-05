@@ -5,7 +5,7 @@ window.onload = function () {
     /*alert(1);
     var xhttp = new XMLHttpRequest();
     try {
-        xhttp.open("GET", "http://13.209.193.228:3006/doc/add/sunny",false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/add/sunny",false);
         xhttp.send(null);
         alert(xhttp.readyState);
         alert(xhttp.status);
