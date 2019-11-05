@@ -9,7 +9,7 @@ function structlist(){
 
 function create() {
     alert(2);
-    location.href='new_docs.html';
+    location.href='docs_.html';
 }
 window.onload = function () {
     /*var xhttp = new XMLHttpRequest();

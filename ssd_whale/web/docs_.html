@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/doc_.css" type="text/css" rel="stylesheet" />
+    <link href="css/general.css" type="text/css" rel="stylesheet" />
+    <title>Title</title>
+    <script src="js/jquery-latest.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div id = "docs_fixed_top">
+    <div class="docs_top_element" style="display: flex; flex-direction: column;">
+        <div id="top_element1" style="height: 54px; width: 100%;" >
+            <div id="docs_title_emoji" style="height:100%; width: 50px; background: orange; float: left">
+            </div>
+            <div id="docs_title_container">
+                <input type="text" placeholder="제목을 입력하세요." id="docs_title" name="docs_title" />
+            </div>
+            <div id="docs_button_menu">
+                <div class="dropdown">
+                    <img class="dropbtn" src="images/menu_icon.png"/>
+                    <div class="dropdown-content">
+                        <a href="#" id="doc_delete">문서삭제</a>
+                        <a href="#" id="push">내보내기</a>
+                        <a href="#">공유하기</a>
+                    </div>
+                </div>
+            </div>
+            <div id="docs_button_save"><img src="images/save-docs.png"/></div>
+        </div>
+        <div id="top_element2">
+            <div id="add_file" style="text-align: center; display: flex; flex-direction: column; margin-left: 21px; margin-right: 23px;">
+                <span style=""><img src="images/file-icon.png"/></span>
+                <span style="font-size: 9px;">파일</span>
+            </div>
+            <div id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px;">
+                <span style=""><img src="images/checklist-icon.png"/></span>
+                <span style="font-size: 9px;">체크리스트</span>
+            </div>
+            <div id="add_togglelist" style="text-align: center; display: flex; flex-direction: column; margin-right: 21px;">
+                <span style=""><img src="images/togglelist_icon.png"/></span>
+                <span style="font-size: 9px;">토글리스트</span>
+            </div>
+            <div id="add_table" style="text-align: center; display: flex; flex-direction: column; margin-right: 34px;">
+                <span style=""><img src="images/table_icon.png"/></span>
+                <span style="font-size: 9px;">표</span>
+            </div>
+            <div style="overflow: hidden; width: 30px; height: 30px;">
+                <div style="width:30px;height:30px;position: absolute;overflow: hidden; ">
+                    <input style="font-size: 30px; right: 0px; position: absolute; top: 0px" type="file" onchange="addImage(this)" />
+                </div>
+            </div>
+            <div id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none">
+                <span style=""><img src="images/photo-icon.png"/></span>
+                <span style="font-size: 9px;">그림</span>
+            </div>
+        </div>
+        <div id="top_element3">
+            <div id="set_font_family" style="border-right: 0.2px solid #dddddd;" >
+                <span id="font_family_text">나눔고딕</span>
+                <span style="margin-right: 7px; margin-left: 10px"><img src="images/angle-arrow-down.png" /></span>
+            </div>
+            <div id="set_font_size" style="border-right: 0.2px solid #dddddd;" >
+                <span id="font_size_text">15</span>
+                <span style="margin-right: 7px; margin-left: 10px"><img src="images/angle-arrow-down.png" /></span>
+            </div>
+            <div id="set_font_style" style="border-right: 0.2px solid #dddddd;">
+                <div id="font_bold_text" style="margin-right: 12px"><b>B</b></div>
+                <div id="font_italic_text" style="margin-right: 12px"><i>I</i></div>
+                <div id="font_underline_text"><u>U</u></div>
+            </div>
+            <div id="set_font_color" style="border-right: 0.2px solid #dddddd;">
+                <div id="font_color" style="margin-right: 10px"><img src="images/text_color_icon.png"/></div>
+                <div id="font_background_color"><img src="images/text-background-icon.png"/> </div>
+            </div>
+            <div id="set_font_align">
+                <div id="align_left" style="margin-right: 6px"><img src="images/align-left-on.png"/></div>
+                <div id="align_center" style="margin-right: 6px"><img src="images/align-center-off.png"/></div>
+                <div id="align_right" style="margin-right: 6px"><img src="images/align-right-off.png"/></div>
+                <div id="line_spacing"><img src="images/line-spacing-off.png"/></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/docs.js"></script>
+
+
+
+</div>
+
+</body>
+</html>

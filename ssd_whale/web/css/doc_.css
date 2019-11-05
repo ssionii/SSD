@@ -1,0 +1,148 @@
+#top_element1{
+    border-bottom: 0.2px solid #dddddd;
+}
+
+#docs_title{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+
+    float: left;
+    margin-left: 8px;
+    margin-top: 15px;
+
+    border: none;
+}
+
+#docs_button_menu{
+    float: right;
+    margin-right: 15px;
+}
+
+#docs_button_save{
+    float: right;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+
+#top_element2{
+    height: 40px;
+    width: 100%;
+    padding-top: 7px;
+
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: 0.2px solid #dddddd;
+}
+
+#top_element3{
+    height: 30px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: 0.2px solid #dddddd;
+}
+
+#set_font_family, #set_font_size{
+    padding-left: 7px;
+    padding-top: 6px;
+}
+
+#font_family_text, #font_size_text{
+    font-size: 11px;
+    font-family: "Nanum Gothic";
+    margin-right: 10px;
+}
+
+#set_font_style{
+    padding-top: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#set_font_color{
+    padding-top: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#set_font_align{
+    padding-top: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+
+#docs_contents_container{
+    position: relative;
+    top:130px;
+    bottom: 200px;
+    height: 633px; /* TODO: 이 부분은 해상도에 따라 조절 해야 함!!*/
+    width: 95%;
+    border: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 15px;
+    padding: 20px;
+}
+
+
+#docs_contents_container:focus{
+    outline: none;
+}
+
+
+
+/** 승맹이 드롭다운 **/
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: white;}
+
+.link{
+    text-decoration: underline;
+    color: blue;
+}
