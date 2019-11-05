@@ -9,7 +9,7 @@ function structlist(){
 
 function create() {
     alert(2);
-    location.href='docs_.html';
+    location.href='docs.html';
 }
 window.onload = function () {
     /*var xhttp = new XMLHttpRequest();
@@ -73,7 +73,7 @@ function something(clicked_id)
         if(xhttp.readyState == 4 && xhttp.status == 201){
             var response = JSON.parse(xhttp.responseText);
             alert(response.message);
-            location.reload('docs.html');
+            location.reload('old_docs.html');
         }
 
         alert("hi");
@@ -81,5 +81,5 @@ function something(clicked_id)
         alert(e.toString());
     }
 */
-    location.href = 'docs.html';
+    location.href = 'old_docs.html';
 }

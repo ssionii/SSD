@@ -87,9 +87,6 @@
 
 
 #docs_contents_container{
-    position: relative;
-    top:130px;
-    bottom: 200px;
     height: 633px; /* TODO: 이 부분은 해상도에 따라 조절 해야 함!!*/
     width: 95%;
     border: 0;
@@ -104,6 +101,23 @@
     outline: none;
 }
 
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    display: block;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: pink;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: pink;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: pink;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: pink;
+}
 
 
 /** 승맹이 드롭다운 **/
