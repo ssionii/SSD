@@ -12,31 +12,36 @@ function save() {
     if(document.getElementById("docs_title").value === "제목을 입력하세요.") {
         alert("제목을 입력하세요.");
     }else{
-        alert(1);
-        var id = document.getElementById("docs_title");
-        var title = document.getElementById("docs_title");
-        var body =  document.getElementById("docs_content_container").innerHTML;
-        var user = "lsm0341";
+        //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
+        var did = doc_id;
+        alert(did);
+        var title = document.getElementById("docs_title").value;
+        alert(title);
+        var body =  document.getElementById("docs_contents_container").innerHTML;
+        alert(body);
+        var user = "sunny";
+        alert(user);
 
-        var http = new XMLHttpRequest();
-        try {
-            http.open('Post',"http://13.209.193.228:3006/doc", false );
-
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.send("user_id=" + user + "&doc_id" + id + "&doc_title" + title + "&doc_body" + body);
-
-            if(http.readyState === 4 && http.status === 201){
-                 var response = JSON.parse(xhttp.responseText);
-                 alert(response);
-                location.replace('list.html');
-            }
-            alert("hi");
-        }catch (e) {
-            alert(e.toString());
-        }
+        /* var http = new XMLHttpRequest();
+         try {
+             http.open('Post',"http://13.209.193.228:3006/doc", false );
+             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             http.send("user_id=" + user + "&doc_id=" + did + "&doc_title=" + title + "&doc_body=" + body);
+             alert("hi");
+             alert(http.readyState);
+             alert(http.status);
+             if(http.readyState === 4 && http.status === 201){
+                 alert("hi");
+                  var response = JSON.parse(http.responseText);
+                  alert(response.message);
+                  alert(response.doc_id);
+             }
+             alert("hi");
+         }catch (e) {
+             alert(e.toString());
+         }*/
     }
 }
-
 function click2() {
     alert(1);
     var obg = document.getElementById("docs_contents_container").innerText;

@@ -5,20 +5,28 @@
     <link href="css/doc.css" type="text/css" rel="stylesheet" />
     <link href="css/general.css" type="text/css" rel="stylesheet" />
     <title>Title</title>
+    <script src="js/jquery-latest.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </head>
-<body>
-<div class="docs_fixed_top">
-    <div>
-        <div class="docs_header">
-            <div id="docs_icon"></div>
-            <input type="text" value="제목을 입력하세요." id="docs_title" name="docs_title"/>
-            <button id="button2">버튼2</button>
-            <button id="button1">버튼1</button>
-            <div id="docs_submit"><img  src="images/save-docs.png"/></div>
-            <div id="docs_menu"><img  src="images/save-docs.png"/></div>
+<body >
+<div class="docs_fixed_top" id="a">
+    <div class="docs_header" id="b">
+        <div id="docs_icon" id="c"></div>
+        <input type="text" placeholder="제목을 입력하세요." id="docs_title" name="docs_title"/>
+        <button id="button2">버튼2</button>
+        <button id="button1">버튼1</button>
+        <img id="docs_submit" src="images/save-docs.png"/><div class="dropdown">
+        <img class="dropbtn" src="images/save-docs.png">
+        <div class="dropdown-content">
+            <a href="#" id="doc_delete">문서삭제</a>
+            <a href="#" id="push">내보내기</a>
+            <a href="#">공유하기</a>
         </div>
+    </div>
+
     </div>
     <script src="js/docs.js"></script>
     <div style="display: flex; flex-direction: column">
@@ -26,13 +34,13 @@
             <div class="wrapper" style="text-align: center">
                 <img class="content" src ="images/file-icon.png"/>
                 <span class="text">파일</span>
-
             </div>
+
             <div id="add_todo" class="wrapper" style="text-align: center" >
                 <img class="content" src ="images/checklist-icon.png"/>
                 <span class="text">체크리스트</span>
-
             </div>
+
             <div id="add_toggle"  class="wrapper" style="text-align: center">
                 <img class="content" src ="images/emoticon-icon.png"/>
                 <span class="text">토글리스트</span>
@@ -103,6 +111,7 @@
         }
     }
 </script>-->
+<script src=" js/pdf.js"></script>
 <script  src="js/docs2.js"></script>
 </body>
 </html>
