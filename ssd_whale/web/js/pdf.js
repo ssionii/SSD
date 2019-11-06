@@ -1,4 +1,6 @@
-$('#push').click(function () {
+document.getElementById("push").addEventListener('click', download, false);
+document.getElementById("doc_delete").addEventListener('click', doc_delete, false);
+function download(){
     alert(1);
 
     /*var pdf = new jsPDF('p', 'pt', 'letter');
@@ -39,12 +41,11 @@ $('#push').click(function () {
         doc.addImage(imgData, 'jpeg', 10, 10, imgWidth, imgHeight); //이미지를 기반으로 pdf생성
         doc.save('document.pdf'); //pdf저장
     });
+}
 
-});
-
-$('#doc_delete').click(function () {
+function doc_delete(){
     alert(1);
-    /*var http = new XMLHttpRequest();
+    var http = new XMLHttpRequest();
      try {
          http.open('Delete',"https://sharesdocument.ml/doc" + doc_id, false );
 
@@ -62,6 +63,6 @@ $('#doc_delete').click(function () {
          alert("hi");
      }catch (e) {
          alert(e.toString());
-     }*/
+     }
+}
 
-});

@@ -10,19 +10,20 @@ var image_count = 0;
 
 function save() {
 
-    if(document.getElementById("docs_title").value === "제목을 입력하세요.") {
+    if(document.getElementById("docs_title").value.length === 0) {
         alert("제목을 입력하세요.");
     }else{
         //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
-        var did = doc_id;
+        /*var did = doc_id;
         alert(did);
         var title = document.getElementById("docs_title").value;
         alert(title);
         var body =  document.getElementById("docs_contents_container").innerHTML;
         alert(body);
         var user = "sunny";
-        alert(user);
+        alert(user);*/
 
+        var body = document.getElementById("docs_contents_container").innerHTML;
         if(doc_content == body){
             alert("변경 사항이 없습니다.");
         } else{
@@ -31,7 +32,7 @@ function save() {
             /////변경사항 알림 처리
         }
 
-        /* var http = new XMLHttpRequest();
+         var http = new XMLHttpRequest();
          try {
              http.open('Post',"https://sharesdocument.ml/doc", false );
              http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -48,7 +49,7 @@ function save() {
              alert("hi");
          }catch (e) {
              alert(e.toString());
-         }*/
+         }
     }
 }
 function click2() {

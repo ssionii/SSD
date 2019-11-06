@@ -2,7 +2,7 @@ var doc_id;
 
 window.onload = function () {
 
-    /*alert(1);
+    alert(1);
     var xhttp = new XMLHttpRequest();
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/add/sunny",false);
@@ -18,7 +18,7 @@ window.onload = function () {
         alert("hi");
     }catch (e) {
         alert(e.toString());
-    }*/
+    }
 }
 
 var div_ = document.getElementById('docs_title');

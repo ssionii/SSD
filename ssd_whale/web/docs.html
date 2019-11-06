@@ -97,7 +97,58 @@
         내용을 입력하세요. background:rgb(255,142,80);
     </div>
 </div>
+<script type="text/javascript">
 
+
+
+    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
+
+    var div_ = document.getElementById('docs_contents_container');
+    div_.onkeyup = function () {
+
+        var keycode = event.keyCode;
+        var target = document.getElementById('docs_contents_container');
+        var text_ = document.getElementById("docs_contents_container").innerText.split(/\s/);
+
+        if(keycode == 32){
+            target.innerText = " ";
+            for (var i = 0; i < text_.length; i++) {
+
+                if(text_[i].match(regExUrl)){
+
+                    var addedTagA = document.createElement("a");
+                    addedTagA.setAttribute("href", text_[i]);
+                    addedTagA.innerHTML = text_[i];
+                    target.appendChild(addedTagA);
+
+                    var addDiv = document.createElement("span");
+                    addDiv.innerHTML = '&nbsp';
+                    target.appendChild(addDiv);
+                }
+                else{
+                    var addedTagDiv = document.createElement("span");
+                    addedTagDiv.innerHTML = text_[i];
+                    target.appendChild(addedTagDiv);
+
+                    var addDiv = document.createElement("span");
+                    addDiv.innerHTML = '&nbsp';
+                    target.appendChild(addDiv);
+                }
+            }
+            var el = document.getElementById('docs_contents_container');
+            var selection = window.getSelection();
+            var range = document.createRange();
+            selection.removeAllRanges();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            selection.addRange(range);
+            el.focus();
+        }
+    }
+
+
+
+</script>
 <!--
 <script type="text/javascript">
     var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
