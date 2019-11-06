@@ -1,24 +1,47 @@
+var user_id;
 var doc_id;
-
 window.onload = function () {
 
-    alert(1);
+    chrome.storage.sync.get('user_id', async function (items) {
+        //lert(111111111);
+        user_id = items.user_id;
+        //alert('!!!!!!!!!!!!!!!!!!');
+        if (!chrome.runtime.error) {
+            alert(items.user_id);
+        }
+        alert(2);
+        await load2();
+        alert(3);
+    });
+}
+
+
+async function load2() {
+    //alert(11111111111111);
     var xhttp = new XMLHttpRequest();
     try {
-        xhttp.open("GET", "https://sharesdocument.ml/doc/add/sunny",false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/add/" + user_id,false);
         xhttp.send(null);
-        alert(xhttp.readyState);
-        alert(xhttp.status);
+        //alert(xhttp.readyState);
+        //alert(xhttp.status);
         if(xhttp.readyState == 4 && xhttp.status == 201){
             var response = JSON.parse(xhttp.responseText);
-            alert(response.message);
+            //alert(response.message);
             alert(response.doc_id);
             doc_id = response.doc_id;
         }
-        alert("hi");
+        //alert("hi");
     }catch (e) {
         alert(e.toString());
     }
+
+    chrome.storage.sync.set({"doc_id": doc_id}, function () {
+        //alert(1);
+        if (chrome.runtime.error) {
+            console.log("Runtime error");
+        }
+    });
+
 }
 
 var div_ = document.getElementById('docs_title');
@@ -50,4 +73,3 @@ div_.onkeyup = function () {
         obj.value = str2;
     }
 }
-

@@ -1,10 +1,12 @@
-document.getElementById('docs_button_save').addEventListener('click',save,false);
-document.getElementById("add_todolist").addEventListener('click', addTodoList, false);
-document.getElementById("add_togglelist").addEventListener('click', addToggleList, false);
+document.getElementById('docs_submit').addEventListener('click',save,false)
+document.getElementById("add_todo").addEventListener('click', addTodoList, false);
+document.getElementById("add_toggle").addEventListener('click', addToggleList, false);
 
 var todo_count = 0;
 var toggle_count = 0;
 var image_count = 0;
+var title;
+var body;
 
 function save() {
 
@@ -12,46 +14,59 @@ function save() {
         alert("제목을 입력하세요.");
     }else{
         //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
-        /*var did = doc_id;
-        alert(did);
-        var title = document.getElementById("docs_title").value;
+        alert("시발");
+        title = document.getElementById("docs_title").value;
         alert(title);
-        var body =  document.getElementById("docs_contents_container").innerHTML;
+        body =  document.getElementById("docs_contents_container").innerHTML;
         alert(body);
-        var user = "sunny";
-        alert(user);*/
 
-        var body = document.getElementById("docs_contents_container").innerHTML;
-        if(doc_content == body){
-            alert("변경 사항이 없습니다.");
-        } else{
-            alert("변경되었습니다.");
-
-            /////변경사항 알림 처리
-        }
-
-         var http = new XMLHttpRequest();
-         try {
-             http.open('Post',"https://sharesdocument.ml/doc", false );
-             http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-             http.send("user_id=" + user + "&doc_id=" + did + "&doc_title=" + title + "&doc_body=" + body);
-             alert("hi");
-             alert(http.readyState);
-             alert(http.status);
-             if(http.readyState === 4 && http.status === 201){
-                 alert("hi");
-                  var response = JSON.parse(http.responseText);
-                  alert(response.message);
-                  alert(response.doc_id);
+        /* chrome.storage.sync.get('doc_id', async function (items) {
+             alert(3333333333333);
+             doc_id = items.doc_id;
+             if (!chrome.runtime.error) {
+                 alert(items.doc_id);
              }
-             alert("hi");
-         }catch (e) {
-             alert(e.toString());
+         });
+ */
+        alert(doc_id);
+        alert(user_id);
+        /*
+                chrome.storage.sync.get('user_id', async function (items) {
+                    alert(111111111);
+                    user_id = items.user_id;
+                    if (!chrome.runtime.error) {
+                        alert(items.user_id);
+                    }
+                    await cibal();
+                });*/
 
-         }
+
+        cibal();
     }
 }
 
+function cibal(){
+
+    alert(111111111);
+    var http = new XMLHttpRequest();
+    try {
+        http.open('Post',"https://sharesdocument.ml/doc", false );
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body);
+        alert("hi");
+        alert(http.readyState);
+        alert(http.status);
+        if(http.readyState === 4 && http.status === 201){
+            alert("hi");
+            var response = JSON.parse(http.responseText);
+            alert(response.message);
+            alert(response.doc_id);
+        }
+        alert("hi");
+    }catch (e) {
+        alert(e.toString());
+    }
+}
 
 function addTodoList(){
     var addFormDiv = document.getElementById("docs_contents_container");
