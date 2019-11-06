@@ -6,7 +6,7 @@
     z-index: 999;
 }
 
-/*.docs_header:after {clear:both; display: block; cotent: ''}*/
+/*docs_header:after {clear:both; display: block; cotent: ''}*/
 .docs_header {
     height: 54px;
     width: 100%;

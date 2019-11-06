@@ -7,6 +7,7 @@ function structlist(){
     var title;;
     var share;
 }
+<<<<<<< HEAD
 var user_id = "undefined";
 
 document.body.onload=function() {
@@ -18,6 +19,12 @@ document.body.onload=function() {
             document.getElementById("data").innerText = items.data;
         }
     });*/
+=======
+
+function create() {
+    alert(2);
+    location.href='docs.html';
+>>>>>>> 20d575bb87e45b31e0651e370d89ed8ed8a1a7bb
 }
 window.onload = function () {
 
@@ -158,14 +165,20 @@ function something(clicked_id)
         if(xhttp.readyState == 4 && xhttp.status == 201){
             var response = JSON.parse(xhttp.responseText);
             alert(response.message);
-            location.reload('docs.html');
+            location.reload('old_docs.html');
         }
 
         alert("hi");
     }catch (e) {
         alert(e.toString());
+<<<<<<< HEAD
     }*/
 
     location.href = 'docs.html';
+=======
+    }
+*/
+    location.href = 'old_docs.html';
+>>>>>>> 20d575bb87e45b31e0651e370d89ed8ed8a1a7bb
 }
 
