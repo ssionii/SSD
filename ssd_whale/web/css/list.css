@@ -3,6 +3,7 @@
     float: left;
     width: 30px;
     height: 30px;
+    background-color: #FFFFFF;
 }
 
 .top_name{
@@ -10,7 +11,7 @@
     margin-left: 9px;
     margin-top: 4px;
     float: left;
-    width: 34px;
+    width: 100px;
     height: 24px;
     font-size: 20px;
     font-weight: 600;
@@ -20,6 +21,9 @@
     letter-spacing: normal;
     text-align: left;
     color: #ff725f;
+}
+body div{
+    alignment: top;
 }
 
 .top_button{
@@ -41,22 +45,26 @@
     padding-bottom: 10px;
 }
 
-.docdoc:hover{
-    background-color: orange;
-    opacity: 0.5;
+.docdoc div{
+    float: left;
 }
+
+.docdoc img {
+    float: right;
+    margin-right: 20px;
+}
+
+.docdoc:hover{
+    background-color: #FFCA6C;
+}
+
 .out{
+    padding-left: 20px;
     margin-top: 20px;
     text-align: center;
 }
 
-#login_button{
-
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    background-color: #ff8c50;
+.out img{
     width: 200px;
-    height: 50px;
-    color: white;
 }
+

@@ -4,7 +4,7 @@ var doc_title;
 
 window.onload = function () {
 
-    /*alert(1);
+    alert(1);
     var xhttp = new XMLHttpRequest();
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
@@ -24,15 +24,15 @@ window.onload = function () {
         alert("hi");
     }catch (e) {
         alert(e.toString());
-    }*/
+    }
 
-    doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
+    /*doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
     doc_title="하이";
     doc_content = '<div>승민</div>'
     var iDiv = document.createElement('div');
     iDiv.innerHTML = doc_content;
     document.getElementById("docs_contents_container").innerHTML = doc_content;
-    document.getElementById("docs_title").value = doc_title;
+    document.getElementById("docs_title").value = doc_title;*/
 }
 
 var div_ = document.getElementById('docs_title');
