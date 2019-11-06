@@ -3,7 +3,6 @@
     float: left;
     width: 30px;
     height: 30px;
-    background-color: #ff8c50;
 }
 
 .top_name{
@@ -20,7 +19,7 @@
     line-height: 1.2;
     letter-spacing: normal;
     text-align: left;
-    color: #ff8d50;
+    color: #ff725f;
 }
 
 .top_button{
