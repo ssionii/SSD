@@ -14,11 +14,11 @@ function save() {
         alert("제목을 입력하세요.");
     }else{
         //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
-        alert("시발");
+        //alert("시발");
         title = document.getElementById("docs_title").value;
-        alert(title);
+        //alert(title);
         body =  document.getElementById("docs_contents_container").innerHTML;
-        alert(body);
+        //alert(body);
 
         /* chrome.storage.sync.get('doc_id', async function (items) {
              alert(3333333333333);
@@ -28,8 +28,8 @@ function save() {
              }
          });
  */
-        alert(doc_id);
-        alert(user_id);
+        //alert(doc_id);
+        //alert(user_id);
         /*
                 chrome.storage.sync.get('user_id', async function (items) {
                     alert(111111111);
@@ -53,16 +53,16 @@ function cibal(){
         http.open('Post',"https://sharesdocument.ml/doc", false );
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body);
-        alert("hi");
-        alert(http.readyState);
-        alert(http.status);
+        //alert("hi");
+        //alert(http.readyState);
+        //alert(http.status);
         if(http.readyState === 4 && http.status === 201){
-            alert("hi");
+            //alert("hi");
             var response = JSON.parse(http.responseText);
-            alert(response.message);
-            alert(response.doc_id);
+            //alert(response.message);
+            //alert(response.doc_id);
         }
-        alert("hi");
+        //alert("hi");
     }catch (e) {
         alert(e.toString());
     }
@@ -227,21 +227,3 @@ function addNotionTodoList(){
     var str = '<div class="todo" style="width: 100%; max-width: 100%; margin-top: 1px; margin-bottom: 1px; position: relative;"><div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill:inherit">' + button + text +'</div></div>'
 }
 
-function click2() {
-    alert(1);
-    var obg = document.getElementById("docs_contents_container").innerText;
-    alert(obg);
-    obg = document.getElementById("docs_contents_container").innerHTML;
-    alert(obg);
-}
-
-function click1() {
-
-    var text_ = document.getElementById("docs_contents_container").innerText.split('\n');
-    var text = "";
-    var i;
-    for (i = 0; i < text_.length; i++){
-        text += "<div id = " + "\"docs_" + i + "\">" + text_[i] + "</div>";
-    }
-    alert(text);
-}

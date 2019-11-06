@@ -1,5 +1,6 @@
 var list_count;
 var list;
+var doc_id;
 
 document.getElementById('docs_create_button').addEventListener('click', create, false);
 function create() {
@@ -19,11 +20,17 @@ window.onload = function () {
     chrome.storage.sync.get('user_id', async function (items) {
         // alert(111111111);
         user_id = items.user_id;
+
         if (!chrome.runtime.error) {
-            alert(items.user_id);
+
+            //alert(items.user_id);
+            if (user_id == null) {
+                alert("문서를 생성해 슫을 이용해 보세요!");
+            }
         }
         await load();
     });
+
 }
 
 async function load() {
@@ -33,9 +40,7 @@ async function load() {
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/list/" + user_id, false);
         xhttp.send(null);
-        if (user_id == "") {
-            alert("문서를 새로 생성해주세요");
-        }
+
         //alert(xhttp.readyState);
         //alert(xhttp.status);
         if (xhttp.readyState == 4 && xhttp.status == 201) {
@@ -119,11 +124,23 @@ async function load() {
             var iDiv = document.createElement('div');
 
             //iDiv.setAttribute("id", "docdoc2");
-            iDiv.setAttribute("id", "docdoc2");
+            //iDiv.setAttribute("id", "docdoc2");
             iDiv.setAttribute("class", "docdoc");
             //iDiv.setAttribute('onclick', 'something(this.id)');
-            iDiv.name = list[i].id + list[i].share;
+            iDiv.id = list[i].id;
             iDiv.innerHTML = list[i].title;
+
+            iDiv.addEventListener('click', function (ev) {
+                doc_id = this.id;
+                alert(doc_id);
+                chrome.storage.sync.set({"doc_id": doc_id}, function () {
+                    //alert(1);
+                    if (chrome.runtime.error) {
+                        console.log("Runtime error");
+                    }
+                });
+                location.href = 'docs.html';
+            })
             document.getElementById("docs_list").appendChild(iDiv);
             //alert(document.getElementById("docs_list").innerHTML)
         } else {
@@ -133,15 +150,22 @@ async function load() {
 
             var ddiv = document.createElement('div');
 
-            //ddiv.setAttribute("id", "docdoc2");
-            ddiv.name = list[i].id + list[i].share;
+            ddiv.id = list[i].id;
             ddiv.setAttribute("class", "docdoc");
-
-            ddiv.setAttribute("id", "docdoc2");
-            //ddiv.setAttribute('onclick', 'something(this.id)');
 
             ddiv.innerHTML += str_;
             ddiv.innerHTML += str;
+            ddiv.addEventListener('click', function (ev) {
+                doc_id = this.id;
+                alert(doc_id);
+                chrome.storage.sync.set({"doc_id": doc_id}, function () {
+                    //alert(1);
+                    if (chrome.runtime.error) {
+                        console.log("Runtime error");
+                    }
+                });
+                location.href = 'docs.html';
+            })
 
             document.getElementById("docs_list").appendChild(ddiv);
         }
@@ -151,11 +175,6 @@ async function load() {
             console.log("Runtime error");
         }
     });
-}
-
-document.getElementById('docdoc2').addEventListener('click', hey, false);
-function hey() {
-    alert(1);
 }
 
 //function something(clicked_id)
