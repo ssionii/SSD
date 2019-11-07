@@ -1,9 +1,3 @@
-function Member(email, isChecked, isAlarmOn){
-     var email = email;
-     var isChecked = isChecked;
-     var isAlarmOn = isAlarmOn;
-}
-
 window.onload = getMemberList();
 
 // 멤버 불러오기
@@ -13,23 +7,49 @@ function getMemberList() {
     memberList.push({email: "ssionii353@naver.com", isChecked: 0, isAlarmOn: 1, size: 20});
     memberList.push({email: "thisIsLongEmailHiroo@naver.com", isChecked: 0, isAlarmOn: 1, size: 30});
 
-    var container = document.getElementById("member_container");
-    var str =""
-
     for(var i = 0; i <memberList.length; i++){
-        str +='<div><div id = "member_container'+i+'"class="email_container border_black"> <img id="member_button'+i +'" name="unselected" src="images/add_docs/add_docs.png" style="margin-left: 11px; margin-right: 10px;width: 13px; height: 13px"> <input id = "member' + i +'"class="unselected_input" type="text" size="'+memberList[i].size +'" value ="'+memberList[i].email+'" readonly/> </div></div>'
+        makeMemberBox(memberList[i].email, i)
     }
 
-    var _div = document.createElement("div");
-    _div.setAttribute("class", "flex_div")
-    _div.innerHTML = str;
-    container.appendChild(_div);
+
 }
 
 
-function setInputValue(id) {
-    var input = document.getElementById(id)
-    input.value = email_input.value
+function makeMemberBox(email, count){
+    var container = document.getElementById("member_container");
+    var str = '<div id = "member_container'+count+'"class="email_container border_black"><input id = "member' + count +'"class="member unselected_input" type="text" size="'+email.length +'" value ="'+email+'" readonly/> <img id="member_select_button'+ count +'" name="unselected" src="images/add-member@3x.png" style="margin-right: 9px; width: 15px; height: 15px"></div>'
 
-    input.setAttribute("size", input.value.length + 2)
+    var _div = document.createElement("div");
+    _div.innerHTML = str;
+    container.appendChild(_div);
+
+    setSelectEventListener(count)
+}
+
+/*
+    member_container0
+    member0
+    member_select_button0
+*/
+
+
+
+function setSelectEventListener(count){
+    var btn = document.getElementById('member_select_button'+count)
+    btn.addEventListener('click', function (ev) {
+        if(this.name == 'unselected') {
+            this.name = 'selected'
+            document.getElementById('member_container'+count).setAttribute("class", "email_container border_none")
+            this.src = "images/multiply@3x.png"
+            document.getElementById('member'+count).setAttribute("class","member selected_input")
+
+        }else if(this.name = 'selected'){
+            this.name = 'unselected'
+            document.getElementById('member_container'+count).setAttribute("class", "email_container border_black")
+            this.src = "images/add-member@3x.png"
+            document.getElementById('member'+count).setAttribute("class","member unselected_input")
+
+        }
+    }, false)
+
 }

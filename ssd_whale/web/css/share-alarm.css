@@ -14,7 +14,7 @@
 }
 
 .border_none{
-    border: none;
+    border: 1px solid #ff9081;
     background: #ff9081;
     font-size: 18px;
     line-height: 21px;
@@ -38,6 +38,10 @@
     color: white;
     background: #ff9081;
     padding-right: 20px;
+}
+
+.member{
+    margin-left: 13px;
 }
 
 .flex_div{
