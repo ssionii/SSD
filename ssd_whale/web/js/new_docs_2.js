@@ -211,9 +211,6 @@ function setImageUrl(count, input){
     }
 }
 
-
-/*************************************************************************************************/
-
 function clickTodo(id){
     var obj = document.getElementById(id);
     obj.style.background = rgb(255, 142, 80);

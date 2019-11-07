@@ -22,12 +22,26 @@
         <button id="button1">버튼1</button>
         <img id="docs_submit" src="images/save-docs.png"/><div class="dropdown">
         <img class="dropbtn" src="images/save-docs.png">
-        <div class="dropdown-content">
-            <a href="#" id="invite">멤버 초대</a>
-            <a href="#" id="push">내보내기</a>
+        <div class="dropdown-content" id="dropdown">
+            <a href="#" id="invite">멤버 초대, 공유하기</a>
+            <!----확인해보기
+            <a href="https://pdfmyurl.com/?url=google.com" id="push">내보내기</a>-->
+            <a href="https://pdfmyurl.com/?url=google.com" id="push">내보내기</a>
             <a href="#" id="doc_delete">문서삭제</a>
-            <a href="#" id="share">공유하기</a>
-            <a href="#" >알림</a>
+            <div><a href="#">알림
+                <label class="switch" id="alarm">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            </div>
+            <div><a href="#">알림
+            <label class="switch2" id="alarm2">
+                <input type="checkbox">
+                <span class="slider2 round"></span>
+            </label>
+        </a>
+        </div>
         </div>
     </div>
     </div>
@@ -103,10 +117,10 @@
 
 
 <div id="docs_contents_container" contenteditable="true">
-    <div>
-        하이 승민 https://www.naver.com
-    </div>
+
 </div>
+<script type="text/javascript" src="./js/html2canvas.js"></script>
+<script type="text/javascript" src="./js/jsPdf.debug.js"></script>
 
 <script src="js/jspdf.js"></script>
 <script src="js/jquery-2.1.3.js"></script>
