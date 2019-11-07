@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/general.css" type="text/css" rel="stylesheet" />
+    <link href="css/share-alarm.css" type="text/css" rel="stylesheet" />
+    <title>알림보내기</title>
+</head>
+<body>
+<div class="app_header" style="height: 54px; width: 100%; border: 0.5px solid #dddddd; display: flex;">
+    <div id="alarm_back" style=" flex: 1; margin-left: 14px; margin-top: 14px"><img src="images/back.png"></div>
+    <div id="alarm_title" style="flex:1; text-align: center; margin-top: 15px; font-size: 20px;">알림보내기</div>
+    <div id="alarm_send" style="flex:1; text-align: right;margin-right: 14px; margin-top: 14px;"><img src="images/send.png"></div>
+</div>
+<div class="app_container">
+    <div class="docs_info_container" style="display: flex; flex-direction: column;">
+        <div class="docs_info_title" style ="margin-bottom: 17px">
+            <div style="font-size: 12px; line-height: 15px; color: #ff725f; margin-bottom: 5px;"><b>문서 이름</b></div>
+            <div id="docs_info_title" style="font-size: 18px; line-height: 21px; color: #000000">알고리즘 스터디</div>
+        </div>
+    </div>
+    <div id="member_container" style="padding: 19px; display: flex; flex-direction: column; ">
+        <span class="hint_text" style="float: left">변경 내용 알림을 보낼 사람을 선택하세요.</span>
+    </div>
+
+</div>
+<script src="js/alarm.js"></script>
+</body>
+</html>

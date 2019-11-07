@@ -27,7 +27,8 @@
     border: none;
     font-size: 18px;
     line-height: 21px;
-    color: black
+    color: black;
+    padding-right: 20px;
 }
 
 .selected_input{
@@ -36,4 +37,10 @@
     line-height: 21px;
     color: white;
     background: #ff9081;
+    padding-right: 20px;
+}
+
+.flex_div{
+    display: flex;
+    flex-direction: column;
 }
