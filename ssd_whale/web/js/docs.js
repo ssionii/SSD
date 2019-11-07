@@ -1,10 +1,11 @@
 var doc_id;
 var doc_content;
 var doc_title;
+var doc_alarm;
 
 window.onload = function () {
 
-    alert(1);
+   /* alert(1);
     var xhttp = new XMLHttpRequest();
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
@@ -16,6 +17,7 @@ window.onload = function () {
             var response = JSON.parse(xhttp.responseText);
             alert(response.message);
             alert(response.content);
+            //doc_alarm = response.doc_alarm;
             doc_id = response.doc_id;
             doc_title = response.doc_title;
             doc_content = response.content;
@@ -25,14 +27,36 @@ window.onload = function () {
     }catch (e) {
         alert(e.toString());
     }
-
-    /*doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
+*/
+   doc_alarm = 0;
+    doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
     doc_title="하이";
     doc_content = '<div>승민</div>'
     var iDiv = document.createElement('div');
     iDiv.innerHTML = doc_content;
     document.getElementById("docs_contents_container").innerHTML = doc_content;
-    document.getElementById("docs_title").value = doc_title;*/
+    document.getElementById("docs_title").value = doc_title;
+
+    if(doc_alarm === 1){
+        var temp = document.createElement('div');
+        var str1 = '<a href = "#">알림'
+        var str2 = '<label class= "switch2" id = "alarm2">' + '<input type = "checkbox">' + '<span class="slider2 round"></span></label></a>';
+
+        temp.innerHTML += (str1 + str2);
+        alert(temp.innerHTML);
+        document.getElementById("dropdown_content").appendChild(temp);
+    }
+    else{
+        var temp = document.createElement('div');
+        var str1 = '<a href = "#">알림'
+        var str2 = '<label class= "switch" id = "alarm">' + '<input type = "checkbox">' + '<span class="slider round"></span></label></a>';
+
+        temp.innerHTML += (str1 + str2);
+        alert(temp.innerHTML);
+        document.getElementById("dropdown_content").appendChild(temp);
+    }
+
+    alert(document.getElementById("dropdown_content").innerHTML);
 }
 
 var div_ = document.getElementById('docs_title');

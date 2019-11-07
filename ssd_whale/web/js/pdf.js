@@ -1,68 +1,68 @@
-document.getElementById("push").addEventListener('click', download, false);
 document.getElementById("doc_delete").addEventListener('click', doc_delete, false);
-function download(){
-    alert(1);
+/*var downPdf = document.getElementById("push");
 
-    /*var pdf = new jsPDF('p', 'pt', 'letter');
-    source = $('#docs_contents_container')[0];
-    specialElementHandlers = {
-        '#bypassme': function(element, renderer){
-            return true
+downPdf.onclick = function() {
+    html2canvas(document.body, {
+        onrendered:function(canvas) {
+
+            var contentWidth = canvas.width;
+            var contentHeight = canvas.height;
+
+            //一页pdf显示html页面生成的canvas高度;
+            var pageHeight = contentWidth / 592.28 * 841.89;
+            //未生成pdf的html页面高度
+            var leftHeight = contentHeight;
+            //pdf页面偏移
+            var position = 0;
+            //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+            var imgWidth = 595.28;
+            var imgHeight = 592.28/contentWidth * contentHeight;
+
+            var pageData = canvas.toDataURL('image/jpeg', 1.0);
+
+            var pdf = new jsPDF('', 'pt', 'a4');
+
+            //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+            //当内容未超过pdf一页显示的范围，无需分页
+            if (leftHeight < pageHeight) {
+                pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight );
+            } else {
+                while(leftHeight > 0) {
+                    pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+                    leftHeight -= pageHeight;
+                    position -= 841.89;
+                    //避免添加空白页
+                    if(leftHeight > 0) {
+                        pdf.addPage();
+                    }
+                }
+            }
+
+            pdf.save('content.pdf');
         }
-    }
-    margins = {
-        top: 50,
-        left: 60,
-        width: 545
-    };
-    pdf.fromHTML(
-        source // HTML string or DOM elem ref.
-        , margins.left // x coord
-        , margins.top // y coord
-        , {
-            'width': margins.width // max width of content on PDF
-            , 'elementHandlers': specialElementHandlers
-        },
-        function (dispose) {
-            // dispose: object with X, Y of the last line add to the PDF
-            //          this allow the insertion of new lines after html
-            pdf.save('html2pdf.pdf');
-        }
-    )*/
-
-    html2canvas($('#docs_contents_container')[0]).then(function(canvas) {
-        var imgData = canvas.toDataURL('image/jpeg'); //캔버스를 이미지로 변환
-        var pageWidth = 210;
-        var pageHeight = pageWidth * 1.414;
-        var imgWidth = pageWidth - 20;
-        var imgHeight = $('#docs_contents_container').height() * imgWidth / $('#docs_contents_container').width();
-        var doc = new jsPDF('p', 'mm', [pageHeight, pageWidth]); //jspdf객체 생성
-
-        doc.addImage(imgData, 'jpeg', 10, 10, imgWidth, imgHeight); //이미지를 기반으로 pdf생성
-        doc.save('document.pdf'); //pdf저장
-    });
-}
+    })
+}*/
 
 function doc_delete(){
     alert(1);
     var http = new XMLHttpRequest();
-     try {
-         http.open('Delete',"https://sharesdocument.ml/doc" + doc_id, false );
+    try {
+        http.open('Delete',"https://sharesdocument.ml/doc" + doc_id, false );
 
-         http.setRequestHeader("user_id", "sunny");
-         http.send(null);
-         alert("hi");
+        http.setRequestHeader("user_id", "sunny");
+        http.send(null);
+        alert("hi");
 
-         alert(http.readyState);
-         alert(http.status);
-         if(http.readyState === 4 && http.status === 201){
-             alert("hi");
-             var response = JSON.parse(http.responseText);
-             alert(response.message);
-         }
-         alert("hi");
-     }catch (e) {
-         alert(e.toString());
-     }
+        alert(http.readyState);
+        alert(http.status);
+        if(http.readyState === 4 && http.status === 201){
+            alert("hi");
+            var response = JSON.parse(http.responseText);
+            alert(response.message);
+        }
+        alert("hi");
+    }catch (e) {
+        alert(e.toString());
+    }
 }
 
