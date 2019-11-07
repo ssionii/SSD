@@ -1,0 +1,39 @@
+.email_container{
+    float:left;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+}
+
+.border_black{
+    border-color: rgba(0,0,0,0.5);
+}
+
+.border_none{
+    border: none;
+    background: #ff9081;
+    font-size: 18px;
+    line-height: 21px;
+    color: white;
+}
+
+.email_container::after { content: ' '; display: block; clear: both }
+
+.unselected_input{
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    color: black
+}
+
+.selected_input{
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    color: white;
+    background: #ff9081;
+}
