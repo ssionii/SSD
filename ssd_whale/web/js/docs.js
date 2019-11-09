@@ -3,9 +3,10 @@ var doc_content;
 var doc_title;
 var doc_alarm;
 
+/*
 window.onload = function () {
 
-   /* alert(1);
+   alert(1);
     var xhttp = new XMLHttpRequest();
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
@@ -27,7 +28,7 @@ window.onload = function () {
     }catch (e) {
         alert(e.toString());
     }
-*/
+
    doc_alarm = 0;
     doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
     doc_title="하이";
@@ -57,7 +58,7 @@ window.onload = function () {
     }
 
     alert(document.getElementById("dropdown_content").innerHTML);
-}
+}*/
 
 var div_ = document.getElementById('docs_title');
 div_.onkeyup = function () {

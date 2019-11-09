@@ -41,11 +41,9 @@ function save() {
 }
 
 function cibal(){
-
-    alert(111111111);
     var http = new XMLHttpRequest();
     try {
-        http.open('Post',"https://sharesdocument.ml/doc", false );
+        http.open('POST',"https://sharesdocument.ml/doc", false );
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body);
         //alert("hi");
@@ -129,14 +127,15 @@ function addToggleList(){
     setToggleImgEventListener('toggle_button' + (toggle_count));
     setToggleTextColorEventListener(toggle_count)
     preventToggleEnter(toggle_count)
+    toggle_count++;
 }
 
 
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
 function setToggleImgEventListener(id) {
-    var childId = 'toggle_child' + toggle_count;
+    var childId = '#toggle_child' + toggle_count;
 
-    toggle_count++;
+
     document.getElementById(id).addEventListener('click', function(ev){
         var obj = document.getElementById(childId)
         var img = document.getElementById(id);
@@ -151,21 +150,22 @@ function setToggleImgEventListener(id) {
     });
 }
 
+/*
 function setToggleTextColorEventListener(count){
-    var parentId = 'toggle_parent_text' + (count-1);
-    var childeId = 'toggle_child_text' + (count-1);
+    var parentId = '#toggle_parent_text' + (count-1);
+    var childeId = '#toggle_child_text' + (count-1);
     $(parentId).keyup(function(e) {
-
+        alert('no enter!')
     });
     $(childeId).keypress(function(e) {
         if (e.keyCode == 13)
             e.preventDefault();
     });
-}
+}*/
 
 function preventToggleEnter(count){
-    var parentId = 'toggle_parent_text' + (count-1);
-    var childeId = 'toggle_child_text' + (count-1);
+    var parentId = 'toggle_parent_text' + count;
+    var childeId = 'toggle_child_text' + count;
     $(parentId).keypress(function(e) {
         if (e.keyCode == 13) {
             e.preventDefault();

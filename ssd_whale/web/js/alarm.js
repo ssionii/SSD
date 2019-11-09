@@ -10,8 +10,6 @@ function getMemberList() {
     for(var i = 0; i <memberList.length; i++){
         makeMemberBox(memberList[i].email, i)
     }
-
-
 }
 
 
@@ -35,6 +33,8 @@ function makeMemberBox(email, count){
 
 
 function setSelectEventListener(count){
+    document.getElementById('member_select_button'+count)
+
     var btn = document.getElementById('member_select_button'+count)
     btn.addEventListener('click', function (ev) {
         if(this.name == 'unselected') {

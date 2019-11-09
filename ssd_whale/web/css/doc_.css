@@ -122,6 +122,17 @@
     color: #cccccc;
 }
 
+.file_container{
+    padding: 10px;
+    float: left;
+    display: block;
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+.file_container::after { content: ' '; display: block; clear: both }
+
+
 
 /** 승맹이 드롭다운 **/
 

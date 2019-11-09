@@ -4,14 +4,10 @@ document.getElementById("add_todolist").addEventListener('click', addTodoList, f
 //document.getElementById("add_todolist_text").addEventListener('click', addTodoList, false);
 document.getElementById("add_togglelist").addEventListener('click', addToggleList, false);
 
-/*
-window.onload = function(ev){
-    var container = document.createElement('div')
-    container.setAttribute("id", "docs_contents_container");
-    container.setAttribute("contenteditable", "true");
-    document.getElementById("container").appendChild(container)
+window.onload = function() {
+    document.getElementById("docs_contents_container").focus();
+};
 
-}*/
 
 
 var todo_count = 0;
@@ -209,31 +205,20 @@ function setImageUrl(count, input){
     }
 }
 
-function insertHtmlAtCursor(html) {
-    var range, node;
-    if (window.getSelection && window.getSelection().getRangeAt) {
-        range = window.getSelection().getRangeAt(0);
-        range.insertNode()
-        node = range.createContextualFragment(html);
-        range.insertNode(node);
-    } else if (document.selection && document.selection.createRange) {
-        document.selection.createRange().pasteHTML(html);
-    }
-}
-/*
-function addTodoListAtCursor(){
-    var node = document.getElementById("docs_contents_container");
 
-    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
+function addFile(input) {
+    var addFormDiv = document.getElementById("docs_contents_container");
 
+    var str = '<img id="image'+ image_count +'"src=""/>';
     var addedDiv = document.createElement("div");
+    addedDiv.setAttribute("id", "image");
     addedDiv.innerHTML = str;
-    node.appendChild(addedDiv);
-    window.getSelection().getRangeAt(0).insertNode(addedDiv);
+    addFormDiv.appendChild(addedDiv);
 
+    setImageUrl(image_count, input)
+    image_count++;
+}
 
-
-}*/
 
 /*************************************************************************************************/
 
