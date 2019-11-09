@@ -11,12 +11,6 @@
 
     <script src="path/jquery-3.3.1.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-    $(".todo_text").keypress(function(e) {
-        if (e.keyCode == 13)
-            e.preventDefault();
-    });
-    </script>
 
 </head>
 <body>
@@ -32,7 +26,7 @@
                 <div class="dropdown">
                     <img class="dropbtn" src="images/menu_icon.png"/>
                     <div class="dropdown-content" id="dropdown_content">
-                        <a href="#">공유하기</a>
+                        <a href="share.html">공유하기</a>
                         <a href="#" id="push">내보내기</a>
                         <a href="#" id="doc_delete">문서삭제</a>
                         <div>
@@ -52,19 +46,19 @@
         <div id="top_element2">
             <div id="add_file" style="text-align: center; display: flex; flex-direction: column; margin-left: 21px; margin-right: 23px;">
                 <span style=""><img src="images/file-icon.png"/></span>
-                <span style="font-size: 9px;">파일</span>
+                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </div>
-            <div id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px;">
-                <span style=""><img src="images/checklist-icon.png"/></span>
-                <span style="font-size: 9px;">체크리스트</span>
-            </div>
-            <div id="add_togglelist" style="text-align: center; display: flex; flex-direction: column; margin-right: 21px;">
+            <span id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px;" >
+                <span id="add_todolist_image"><img src="images/checklist-icon.png"/></span>
+               <input type="button" value="체크리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+            </span>
+            <span id="add_togglelist" style="text-align: center; display: flex; flex-direction: column; margin-right: 21px;">
                 <span style=""><img src="images/togglelist_icon.png"/></span>
-                <span style="font-size: 9px;">토글리스트</span>
-            </div>
+                <input type="button" value="토글리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+            </span>
             <div id="add_table" style="text-align: center; display: flex; flex-direction: column; margin-right: 34px;">
                 <span style=""><img src="images/table_icon.png"/></span>
-                <span style="font-size: 9px;">표</span>
+                <input type="button" value="표" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </div>
             <div style="overflow: hidden; width: 30px; height: 30px;">
                 <div style="width:30px;height:30px;position: absolute;overflow: hidden; ">
@@ -73,10 +67,8 @@
             </div>
             <div id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none">
                 <span style=""><img src="images/photo-icon.png"/></span>
-                <span style="font-size: 9px;">그림</span>
+                <input type="button" value="그림" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </div>
-
-            <script src="js/new_docs.js"></script>
         </div>
         <div id="top_element3">
             <div id="set_font_family" style="border-right: 0.2px solid #dddddd;" >
@@ -110,19 +102,6 @@
     </div>
 
 </div>
-<!--
-<script type="text/javascript">
-    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
-
-    var div_ = document.getElementById('docs_contents_container');
-
-    div_.onkeyup = function () {
-        if(div_.innerHTML.match(regExUrl)){
-            var st = div_.innerHTML.match(regExUrl);
-            div_.innerHTML = div_.innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
-        }
-    }
-</script>-->
 <script  src="js/docs2.js"></script>
 <script type="text/javascript" src="./js/html2canvas.js"></script>
 <script type="text/javascript" src="./js/jsPdf.debug.js"></script>
