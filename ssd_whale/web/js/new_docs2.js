@@ -139,13 +139,16 @@ function addTodoList(){
     if(range.commonAncestorContainer.nodeName != 'SPAN') {
         range.insertNode(addedDiv);
 
-        addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
+        addTodoButtonEventListener(todo_count);
         //preventTodoEnter(todo_count);
 
     }
 }
 
-function addTodoButtonEventListener(buttonId, textId) {
+function addTodoButtonEventListener(count, from = "") {
+    var buttonId = 'todo_button' + count;
+    var textId = 'todo_text' + count;
+
     document.getElementById(buttonId).addEventListener('click', function(ev) {
         var button = document.getElementById(buttonId);
         var text = document.getElementById(textId)
@@ -163,7 +166,8 @@ function addTodoButtonEventListener(buttonId, textId) {
             text.style.color = "#000000"
         }
     })
-    todo_count++;
+    if(from != "load")
+        todo_count++;
 }
 
 function addToggleList(){
@@ -185,15 +189,14 @@ function addToggleList(){
         range.insertNode(addedDiv);
 
         setToggleImgEventListener(toggle_count);
-        setToggleTextColorEventListener(toggle_count)
-        preventToggleEnter(toggle_count)
 
     }
 }
 
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
-function setToggleImgEventListener(count, from = "add") {
+function setToggleImgEventListener(count, from = "") {
     var button = 'toggle_button' + count;
+    alert(button)
     var childId = 'toggle_child' + count;
 
     document.getElementById(button).addEventListener('click', function(ev){
@@ -209,8 +212,10 @@ function setToggleImgEventListener(count, from = "add") {
         }
     });
 
-    if(from == "add")
+    if(from != "load") {
         toggle_count++;
+    }
+
 }
 
 function setToggleTextColorEventListener(count) {

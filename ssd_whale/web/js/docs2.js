@@ -183,12 +183,14 @@ function addTodoList(){
     if(range.commonAncestorContainer.nodeName != 'SPAN') {
         range.insertNode(addedDiv);
 
-        addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
-        todo_count++;
+        addTodoButtonEventListener(todo_count);
+
     }
 }
 
-function addTodoButtonEventListener(buttonId, textId) {
+function addTodoButtonEventListener(count, from = "") {
+    var buttonId = 'todo_button' + count;
+    var textId = 'todo_text' + count;
     document.getElementById(buttonId).addEventListener('click', function(ev) {
         var button = document.getElementById(buttonId);
         var text = document.getElementById(textId)
@@ -206,6 +208,9 @@ function addTodoButtonEventListener(buttonId, textId) {
             text.style.color = "#000000"
         }
     })
+
+    if(from != "load")
+        todo_count++;
 
 }
 
@@ -226,18 +231,19 @@ function addToggleList(){
 
     if(range.commonAncestorContainer.nodeName != 'SPAN') {
         range.insertNode(addedDiv);
-        setToggleImgEventListener(toggle_count, "add");
-
+        setToggleImgEventListener(toggle_count);
     }
 }
 
-function setToggleImgEventListener(count, from = "add") {
-    var button = 'toggle_button' + count;
+function setToggleImgEventListener(count, from = "") {
+
+    var buttonId = 'toggle_button' + count;
+    alert(buttonId)
     var childId = 'toggle_child' + count;
 
-    document.getElementById(button).addEventListener('click', function(ev){
+    document.getElementById(buttonId).addEventListener('click', function(ev){
         var obj = document.getElementById(childId)
-        var img = document.getElementById(button);
+        var img = document.getElementById(buttonId);
 
         if(obj.style.display == "none"){
             obj.style.display = "block";
@@ -248,7 +254,7 @@ function setToggleImgEventListener(count, from = "add") {
         }
     });
 
-    if(from == "add")
+    if(from != "load")
         toggle_count++;
 }
 
