@@ -1,18 +1,42 @@
+var todo_count = 0;
+var toggle_count = 0;
+var image_count = 0;
+
+
 document.getElementById('docs_button_save').addEventListener('click',save,false);
 document.getElementById("add_todolist").addEventListener('click', addTodoList, false);
 //document.getElementById("add_todolist_image").addEventListener('click', addTodoList, false);
 //document.getElementById("add_todolist_text").addEventListener('click', addTodoList, false);
 document.getElementById("add_togglelist").addEventListener('click', addToggleList, false);
 
+
+
 window.onload = function() {
     document.getElementById("docs_contents_container").focus();
+
+    $(function (){
+        $("#ff").on("change", function (){
+            var _range = window.getSelection().getRangeAt(0);
+            var _node = document.createElement('span');
+            _node.innerHTML = '<font style="font-family: '+ $(this).val() + '">' + _range.toString() + '</font>'
+            if (_node) _node = _node.childNodes[0];
+            _range.deleteContents();
+            _range.insertNode(_node);
+        });
+
+        $("#fs").on("change", function (){
+            var _range = window.getSelection().getRangeAt(0);
+            var _node = document.createElement('span');
+            _node.innerHTML = '<font style="font-size: '+ $(this).val() +"px" + '">' + _range.toString() + '</font>'
+            if (_node) _node = _node.childNodes[0];
+            _range.deleteContents();
+            _range.insertNode(_node);
+
+        });
+    })
 };
 
 
-
-var todo_count = 0;
-var toggle_count = 0;
-var image_count = 0;
 
 function save() {
 
@@ -66,10 +90,11 @@ function addTodoList(){
     var selection = window.getSelection();
     var range = selection.getRangeAt(0);
 
-    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
+    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div class="todo_text" id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
 
     var addedDiv = document.createElement("div");
     addedDiv.setAttribute('class', 'todo');
+    addedDiv.setAttribute('id', 'todo_container' + todo_count);
     addedDiv.innerHTML = str;
 
     var emptyDiv = document.createElement("div");
@@ -79,7 +104,8 @@ function addTodoList(){
         range.insertNode(addedDiv);
 
         addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
-        todo_count++;
+        //preventTodoEnter(todo_count);
+
     }
 
 }
@@ -102,8 +128,19 @@ function addTodoButtonEventListener(buttonId, textId) {
             text.style.color = "#000000"
         }
     })
+    todo_count++;
 }
 
+
+function preventTodoEnter(count){
+    var container = document.getElementById("todo_text" + count);
+    container.on('keyup', 'todo_text0', function(e) {
+        if (e.key === 'Enter' && e.target.tagName === 'MAIN') {
+            e.preventDefault();
+            alert('no enter')
+        }
+    });
+}
 
 function addToggleList(){
 
@@ -111,7 +148,7 @@ function addToggleList(){
     var selection = window.getSelection();
     var range = selection.getRangeAt(0);
 
-    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px;"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
+    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png"></div><div class="toggle_parent" id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px; margin-top: 3px"><div class="toggle_child" id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; " ></div></div>'
 
     var addedDiv = document.createElement("div");
     addedDiv.innerHTML = str;
@@ -151,7 +188,7 @@ function setToggleImgEventListener(id) {
 }
 
 function setToggleTextColorEventListener(count){
-    var parentId = 'toggle_parent_text' + (count-1);
+    parent
     var childeId = 'toggle_child_text' + (count-1);
     $(parentId).keyup(function(e) {
 
@@ -205,20 +242,9 @@ function setImageUrl(count, input){
     }
 }
 
+function setFontFamily(){
 
-function addFile(input) {
-    var addFormDiv = document.getElementById("docs_contents_container");
-
-    var str = '<img id="image'+ image_count +'"src=""/>';
-    var addedDiv = document.createElement("div");
-    addedDiv.setAttribute("id", "image");
-    addedDiv.innerHTML = str;
-    addFormDiv.appendChild(addedDiv);
-
-    setImageUrl(image_count, input)
-    image_count++;
 }
-
 
 /*************************************************************************************************/
 

@@ -4,9 +4,6 @@ var file_count = 0;
 
 function uploadSubmit() {
 
-    /*
-    var formData = new FormData(document.getElementById('add_file'));
-    alert(document.getElementById('add_file'));*/
     var file = document.getElementById('add_file');
     var fileName = file.value;
     if(fileName == ""){
@@ -62,16 +59,18 @@ function uploadSubmit() {
             _div.setAttribute("contenteditable", "false")
             _div.innerHTML = str
 
-            range.insertNode(_div);
+            if(range.commonAncestorContainer.nodeName != 'SPAN') {
+                range.insertNode(_div);
 
-            var emptyDiv = document.createElement("div");
-            emptyDiv.innerHTML = '<br><br><br><br>'
-            container.appendChild(emptyDiv)
+                var emptyDiv = document.createElement("div");
+                emptyDiv.innerHTML = '<br><br><br><br>'
+                container.appendChild(emptyDiv)
 
-            document.getElementById('file_name' + file_count).value = fileTitle + " (" + fileSize_mb + "MB)"
-            setFileOpenListener("https://ssdfilebucket.s3.ap-northeast-2.amazonaws.com/main.html", 0)
+                document.getElementById('file_name' + file_count).value = fileTitle + " (" + fileSize_mb + "MB)"
+                setFileOpenListener("https://ssdfilebucket.s3.ap-northeast-2.amazonaws.com/main.html", 0)
 
-            file_count++;
+                file_count++;
+            }
 
         },
 
