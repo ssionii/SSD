@@ -238,7 +238,6 @@ function addToggleList(){
 function setToggleImgEventListener(count, from = "") {
 
     var buttonId = 'toggle_button' + count;
-    alert(buttonId)
     var childId = 'toggle_child' + count;
 
     document.getElementById(buttonId).addEventListener('click', function(ev){

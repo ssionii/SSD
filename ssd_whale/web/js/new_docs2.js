@@ -196,7 +196,6 @@ function addToggleList(){
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
 function setToggleImgEventListener(count, from = "") {
     var button = 'toggle_button' + count;
-    alert(button)
     var childId = 'toggle_child' + count;
 
     document.getElementById(button).addEventListener('click', function(ev){
