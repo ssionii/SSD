@@ -1,14 +1,20 @@
 var doc_id;
 var doc_content;
 var doc_title;
-var doc_alarm;
 
 window.onload = function () {
-
-   /* alert(1);
+    /*chrome.storage.sync.get('doc_id', async function (items) {
+        alert(3333333333333);
+        doc_id = items.doc_id;
+        if (!chrome.runtime.error) {
+            alert(items.doc_id);
+        }
+        await heyhey();
+    });
+   //alert(1);
     var xhttp = new XMLHttpRequest();
     try {
-        xhttp.open("GET", "https://sharesdocument.ml/doc/b51ff84a14cfd6a3e90b12aa059c0b16f51b",false);
+        xhttp.open("GET", "https://sharesdocument.ml/doc/" + doc_id,false);
         xhttp.setRequestHeader("user_id", "sunny");
         xhttp.send(null);
         alert(xhttp.readyState);
@@ -26,37 +32,16 @@ window.onload = function () {
         alert("hi");
     }catch (e) {
         alert(e.toString());
-    }
-*/
-   doc_alarm = 0;
+    }*/
+
     doc_id = 'b51ff84a14cfd6a3e90b12aa059c0b16f51b';
     doc_title="하이";
-    doc_content = '<div>승민</div>'
+    doc_content = '<div>승민</div> '
     var iDiv = document.createElement('div');
     iDiv.innerHTML = doc_content;
     document.getElementById("docs_contents_container").innerHTML = doc_content;
     document.getElementById("docs_title").value = doc_title;
 
-    if(doc_alarm === 1){
-        var temp = document.createElement('div');
-        var str1 = '<a href = "#">알림'
-        var str2 = '<label class= "switch2" id = "alarm2">' + '<input type = "checkbox">' + '<span class="slider2 round"></span></label></a>';
-
-        temp.innerHTML += (str1 + str2);
-        alert(temp.innerHTML);
-        document.getElementById("dropdown_content").appendChild(temp);
-    }
-    else{
-        var temp = document.createElement('div');
-        var str1 = '<a href = "#">알림'
-        var str2 = '<label class= "switch" id = "alarm">' + '<input type = "checkbox">' + '<span class="slider round"></span></label></a>';
-
-        temp.innerHTML += (str1 + str2);
-        alert(temp.innerHTML);
-        document.getElementById("dropdown_content").appendChild(temp);
-    }
-
-    alert(document.getElementById("dropdown_content").innerHTML);
 }
 
 var div_ = document.getElementById('docs_title');

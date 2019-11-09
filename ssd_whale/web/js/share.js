@@ -1,6 +1,48 @@
 var share_email_count = 0;
-var created = false
+var created = false;
+var doc_title;
+var doc_member;
+var doc_num;
 var email_input = document.getElementById("input_email");
+
+window.onload = function(){
+    var xhttp = new XMLHttpRequest();
+    //alert(1);
+    try {
+        //xhttp.open("GET", "https://sharesdocument.ml/doc/list/" + user_id, false);
+        xhttp.send(null);
+
+        alert(xhttp.readyState);
+        alert(xhttp.status);
+        if (xhttp.readyState == 4 && xhttp.status == 201) {
+            var response = JSON.parse(xhttp.responseText);
+            //alert(response.message);
+            doc_title = response.title;
+            doc_num = response.list.length;
+            list = new Array(doc_num);
+
+            for (var i = 0; i < doc_num; i++) {
+                list[i] = response.email[i];
+
+                alert(list[i]);
+            }
+        }
+    } catch (e) {
+        alert(e.toString());
+    }
+
+    document.getElementById('docs_info_title').value = doc_title;
+
+    for (var i = 0; i < doc_num; i++) {
+        var str_ = '<div>' + list[i] + '</div>';
+        var email_div = document.createElement('div');
+        email_div.innerHTML += str_;
+        document.getElementById("docs_info_all_members").appendChild(email_div);
+    }
+}
+
+
+
 email_input.onkeyup = function(ev){
     if(ev.keyCode == 50 && !created){
         created = true
@@ -19,13 +61,6 @@ email_input.onkeyup = function(ev){
         created = false
     }
 }
-
-/*
-    email_div0
-    email_container0
-    email_select_button0
-    email0
- */
 
 function setSelectEventListener(count){
     var btn = document.getElementById('email_select_button'+count)
