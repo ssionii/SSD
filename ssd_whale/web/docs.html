@@ -14,8 +14,8 @@
 
 </head>
 <body>
-<div id = "docs" style="position: fixed; width: 100%; right: 0; background-color: white;" >
-    <span class="docs_top_element" style="display: flex; flex-direction: column;" contenteditable="false" >
+<div id = "docs_fixed_top" style="position: fixed; width: 100%; right: 0; background-color: white;" >
+    <div class="docs_top_element" style="display: flex; flex-direction: column;">
         <div id="top_element1" style="height: 54px; width: 100%;" >
             <div id="docs_title_emoji" style="height:100%; width: 50px; background: #ff725f; float: left">
             </div>
@@ -34,7 +34,7 @@
             </div>
             <div id="docs_button_save"><img src="images/save-docs.png"/></div>
         </div>
-        <span id="top_element2">
+        <div id="top_element2">
             <div id="add_file" style="text-align: center; display: flex; flex-direction: column; margin-left: 21px; margin-right: 23px;">
                 <span style=""><img src="images/file-icon.png"/></span>
                 <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
@@ -43,10 +43,10 @@
                 <span id="add_todolist_image"><img src="images/checklist-icon.png"/></span>
                <input type="button" value="체크리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </span>
-            <div id="add_togglelist" style="text-align: center; display: flex; flex-direction: column; margin-right: 21px;">
+            <span id="add_togglelist" style="text-align: center; display: flex; flex-direction: column; margin-right: 21px;">
                 <span style=""><img src="images/togglelist_icon.png"/></span>
                 <input type="button" value="토글리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
-            </div>
+            </span>
             <div id="add_table" style="text-align: center; display: flex; flex-direction: column; margin-right: 34px;">
                 <span style=""><img src="images/table_icon.png"/></span>
                 <input type="button" value="표" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
@@ -60,7 +60,7 @@
                 <span style=""><img src="images/photo-icon.png"/></span>
                 <input type="button" value="그림" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </div>
-        </span>
+        </div>
         <div id="top_element3">
             <div id="set_font_family" style="border-right: 0.2px solid #dddddd;" >
                 <span id="font_family_text">나눔고딕</span>
@@ -86,8 +86,8 @@
                 <div id="line_spacing"><img src="images/line-spacing-off.png"/></div>
             </div>
         </div>
-    </span>
-    <!--<script src="js/docs.js"></script>-->
+    </div>
+    <script src="js/docs.js"></script>
     <div id="docs_contents_container", contenteditable="true">
 
     </div>

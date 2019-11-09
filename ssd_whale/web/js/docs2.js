@@ -110,21 +110,29 @@ function addTodoButtonEventListener(buttonId, textId) {
 
 
 function addToggleList(){
-    var addFormDiv = document.getElementById("docs_contents_container");
+
+    var container = document.getElementById("docs_contents_container");
+    var selection = window.getSelection();
+    var range = selection.getRangeAt(0);
 
     var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px;"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
+
     var addedDiv = document.createElement("div");
     addedDiv.innerHTML = str;
-    addFormDiv.appendChild(addedDiv);
 
     var emptyDiv = document.createElement("div");
     emptyDiv.innerHTML = '<br>'
-    addFormDiv.appendChild(emptyDiv)
+    container.appendChild(emptyDiv);
 
+    if(range.commonAncestorContainer.nodeName != 'SPAN') {
+        range.insertNode(addedDiv);
 
-    setToggleImgEventListener('toggle_button' + (toggle_count));
-    setToggleTextColorEventListener(toggle_count)
-    preventToggleEnter(toggle_count)
+        setToggleImgEventListener('toggle_button' + (toggle_count));
+        setToggleTextColorEventListener(toggle_count)
+        preventToggleEnter(toggle_count)
+        toggle_count++;
+    }
+
 }
 
 
@@ -132,7 +140,6 @@ function addToggleList(){
 function setToggleImgEventListener(id) {
     var childId = 'toggle_child' + toggle_count;
 
-    toggle_count++;
     document.getElementById(id).addEventListener('click', function(ev){
         var obj = document.getElementById(childId)
         var img = document.getElementById(id);
