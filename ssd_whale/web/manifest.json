@@ -8,7 +8,6 @@
       "default_icon": {
        "16": "images/ssd-logo.png"
      },
-
       "default_title": "SSD",
       "use_navigation_bar": true,
       "mobile_user_agent": true

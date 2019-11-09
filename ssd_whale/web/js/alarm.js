@@ -1,8 +1,18 @@
 window.onload = getMemberList();
 
+document.getElementById("alarm_back").addEventListener('click', back, false);
+document.getElementById("alarm_send").addEventListener('click', send, false);
+
+function back() {
+    document.location.replace("docs.html");
+}
+
+
 // 멤버 불러오기
 function getMemberList() {
     // 통신
+
+
     var memberList = [];
     memberList.push({email: "ssionii353@naver.com", isChecked: 0, isAlarmOn: 1, size: 20});
     memberList.push({email: "thisIsLongEmailHiroo@naver.com", isChecked: 0, isAlarmOn: 1, size: 30});
@@ -10,8 +20,6 @@ function getMemberList() {
     for(var i = 0; i <memberList.length; i++){
         makeMemberBox(memberList[i].email, i)
     }
-
-
 }
 
 
@@ -25,14 +33,6 @@ function makeMemberBox(email, count){
 
     setSelectEventListener(count)
 }
-
-/*
-    member_container0
-    member0
-    member_select_button0
-*/
-
-
 
 function setSelectEventListener(count){
     var btn = document.getElementById('member_select_button'+count)
