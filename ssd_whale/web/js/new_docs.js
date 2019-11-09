@@ -2,6 +2,7 @@ var user_id;
 var doc_id;
 window.onload = function () {
 
+
     chrome.storage.sync.get('user_id', async function (items) {
         //lert(111111111);
         user_id = items.user_id;

@@ -11,21 +11,6 @@
 
     <script src="path/jquery-3.3.1.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>/*
-        $('div[contenteditable=true]').keydown(function(e) {
-            // trap the return key being pressed
-            if (e.keyCode == 13) {
-                // insert 2 br tags (if only one br tag is inserted the cursor won't go to the second line)
-                document.execCommand('insertHTML', false, '<br><br>');
-                // prevent the default behaviour of return key pressed
-                return false;
-            }
-        });*/
-    $(".todo_text").keypress(function(e) {
-        if (e.keyCode == 13)
-            e.preventDefault();
-    });
-    </script>
 
 </head>
 <body>
@@ -50,11 +35,8 @@
             <div id="docs_button_save"><img src="images/save-docs.png"/></div>
         </div>
         <div id="top_element2">
-            <div id="add_file" style="text-align: center; display: flex; flex-direction: column; margin-left: 21px; margin-right: 23px;">
-                <span style=""><img src="images/file-icon.png"/></span>
-                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
-            </div>
-            <span id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px;" >
+
+            <span id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px; margin-left:21px" >
                 <span id="add_todolist_image"><img src="images/checklist-icon.png"/></span>
                <input type="button" value="체크리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </span>
@@ -68,13 +50,23 @@
             </div>
             <div style="overflow: hidden; width: 30px; height: 30px;">
                 <div style="width:30px;height:30px;position: absolute;overflow: hidden; ">
-                    <input style="font-size: 30px; right: 0px; position: absolute; top: 0px" type="file" onchange="addImage(this)" />
+                    <input style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file" onchange="addImage(this)" />
                 </div>
             </div>
-            <div id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none">
+            <div id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none; cursor: pointer">
                 <span style=""><img src="images/photo-icon.png"/></span>
                 <input type="button" value="그림" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </div>
+            <div style="overflow: hidden; width: 30px; height: 30px;">
+                <div style="width:30px;height:30px;position: absolute; overflow: hidden; ">
+                    <input id="add_file" style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file">
+                </div>
+            </div>
+            <div id="" style="text-align: center; display: flex; flex-direction: column;margin-right: 23px; position: relative; left: -30px; pointer-events: none; cursor:pointer;" >
+                <span style=""><img src="images/file-icon.png"/></span>
+                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+            </div>
+
         </div>
         <div id="top_element3">
             <div id="set_font_family" style="border-right: 0.2px solid #dddddd;" >
@@ -102,24 +94,12 @@
             </div>
         </div>
     </div>
+    <script src="js/new_docs.js"></script>
     <div id="docs_contents_container" contenteditable="true">
 
     </div>
 
 </div>
-<!--
-<script type="text/javascript">
-    var regExUrl = /https?:\/\/([\w\d-\.]+)?[\w\d-\.]+\.{1}[\w]{1,4}(\/{1})?([a-zA-Z0-9&-@_\+.‌​~#?\/=]*)?/gi;
-
-    var div_ = document.getElementById('docs_contents_container');
-
-    div_.onkeyup = function () {
-        if(div_.innerHTML.match(regExUrl)){
-            var st = div_.innerHTML.match(regExUrl);
-            div_.innerHTML = div_.innerHTML.replace(regExUrl, "<span style='color:blue;text-decoration:underline'>" + st[0] + "</span>");
-        }
-    }
-</script>-->
 <script  src="js/docs2.js"></script>
 <script type="text/javascript" src="./js/html2canvas.js"></script>
 <script type="text/javascript" src="./js/jsPdf.debug.js"></script>

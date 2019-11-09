@@ -4,8 +4,8 @@ var doc_id;
 
 document.getElementById('docs_create_button').addEventListener('click', create, false);
 function create() {
-    //alert(1);
-    location.href = 'docs.html';
+    location.href = 'new_docs.html';
+
 }
 
 function structlist(){
@@ -13,6 +13,7 @@ function structlist(){
     var title;;
     var share;
 }
+
 var user_id = "";
 
 window.onload = function () {
@@ -123,26 +124,17 @@ async function load() {
         if (list[i].share == 0) {
             var iDiv = document.createElement('div');
 
-            //iDiv.setAttribute("id", "docdoc2");
-            //iDiv.setAttribute("id", "docdoc2");
             iDiv.setAttribute("class", "docdoc");
-            //iDiv.setAttribute('onclick', 'something(this.id)');
             iDiv.id = list[i].id;
             iDiv.innerHTML = list[i].title;
 
             iDiv.addEventListener('click', function (ev) {
                 doc_id = this.id;
                 alert(doc_id);
-                chrome.storage.sync.set({"doc_id": doc_id}, function () {
-                    //alert(1);
-                    if (chrome.runtime.error) {
-                        console.log("Runtime error");
-                    }
-                });
+
                 location.href = 'docs.html';
             })
             document.getElementById("docs_list").appendChild(iDiv);
-            //alert(document.getElementById("docs_list").innerHTML)
         } else {
 
             var str = '<img src= "images/shared_docs/shared_docs.png"/>'
@@ -159,7 +151,6 @@ async function load() {
                 doc_id = this.id;
                 alert(doc_id);
                 chrome.storage.sync.set({"doc_id": doc_id}, function () {
-                    //alert(1);
                     if (chrome.runtime.error) {
                         console.log("Runtime error");
                     }

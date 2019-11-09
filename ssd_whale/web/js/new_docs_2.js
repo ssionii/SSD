@@ -1,5 +1,5 @@
 document.getElementById('docs_submit').addEventListener('click',save,false)
-document.getElementById("add_todo").addEventListener('click', addTodoList, false);
+document.getElementById("add_todolist").addEventListener('click', addTodoList, false);
 document.getElementById("add_toggle").addEventListener('click', addToggleList, false);
 
 var todo_count = 0;
