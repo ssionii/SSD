@@ -5,16 +5,14 @@
     "version": "1.2",
    "sidebar_action": {
       "default_page": "list.html",
-      "default_icon": {
-       "16": "images/ssd-logo.png"
-     },
 
       "default_title": "SSD",
-      "use_navigation_bar": true,
+      "use_navigation_bar": false,
       "mobile_user_agent": true
     },
   "background": {
-    "scripts": ["js/jquery-2.1.3.js", "js/html2canvas.min.js"]
+    "scripts": ["js/jquery-2.1.3.js"]
   },
-  "permissions": ["storage"]
+  "permissions": [ "tabs", "storage"],
+  "content_security_policy":"script-src 'self'  'unsafe-inline' 'unsafe eval' object-src 'self'"
 }
