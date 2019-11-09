@@ -1,6 +1,18 @@
 document.getElementById('docs_button_save').addEventListener('click',save,false);
 document.getElementById("add_todolist").addEventListener('click', addTodoList, false);
+//document.getElementById("add_todolist_image").addEventListener('click', addTodoList, false);
+//document.getElementById("add_todolist_text").addEventListener('click', addTodoList, false);
 document.getElementById("add_togglelist").addEventListener('click', addToggleList, false);
+
+/*
+window.onload = function(ev){
+    var container = document.createElement('div')
+    container.setAttribute("id", "docs_contents_container");
+    container.setAttribute("contenteditable", "true");
+    document.getElementById("container").appendChild(container)
+
+}*/
+
 
 var todo_count = 0;
 var toggle_count = 0;
@@ -54,24 +66,26 @@ function save() {
 
 
 function addTodoList(){
-    var addFormDiv = document.getElementById("docs_contents_container");
-
-    //var str ='<input type="checkbox" id="todo'+todo_count+'" name="todo'+todo_count+'"style="margin-right: 8px; width: 20px; height: 20px;"/>'
+    var container = document.getElementById("docs_contents_container");
+    var selection = window.getSelection();
+    var range = selection.getRangeAt(0);
 
     var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
+
     var addedDiv = document.createElement("div");
     addedDiv.setAttribute('class', 'todo');
     addedDiv.innerHTML = str;
-    addFormDiv.appendChild(addedDiv);
 
     var emptyDiv = document.createElement("div");
     emptyDiv.innerHTML = '<br>'
-    addFormDiv.appendChild(emptyDiv)
+    container.appendChild(emptyDiv);
+    if(range.commonAncestorContainer.nodeName != 'SPAN') {
+        range.insertNode(addedDiv);
 
+        addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
+        todo_count++;
+    }
 
-    preventTodoEnter(todo_count);
-    addTodoButtonEventListener('todo_button' + todo_count, 'todo_text' + todo_count);
-    todo_count++;
 }
 
 function addTodoButtonEventListener(buttonId, textId) {
@@ -94,15 +108,6 @@ function addTodoButtonEventListener(buttonId, textId) {
     })
 }
 
-function preventTodoEnter(count){
-    var id = 'todo_text' + (count-1);
-    $(id).keypress(function(e) {
-        if (e.keyCode == 13)
-            e.preventDefault();
-    });
-
-}
-
 
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
@@ -115,6 +120,7 @@ function addToggleList(){
     var emptyDiv = document.createElement("div");
     emptyDiv.innerHTML = '<br>'
     addFormDiv.appendChild(emptyDiv)
+
 
     setToggleImgEventListener('toggle_button' + (toggle_count));
     setToggleTextColorEventListener(toggle_count)
@@ -196,6 +202,31 @@ function setImageUrl(count, input){
     }
 }
 
+function insertHtmlAtCursor(html) {
+    var range, node;
+    if (window.getSelection && window.getSelection().getRangeAt) {
+        range = window.getSelection().getRangeAt(0);
+        range.insertNode()
+        node = range.createContextualFragment(html);
+        range.insertNode(node);
+    } else if (document.selection && document.selection.createRange) {
+        document.selection.createRange().pasteHTML(html);
+    }
+}
+/*
+function addTodoListAtCursor(){
+    var node = document.getElementById("docs_contents_container");
+
+    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
+
+    var addedDiv = document.createElement("div");
+    addedDiv.innerHTML = str;
+    node.appendChild(addedDiv);
+    window.getSelection().getRangeAt(0).insertNode(addedDiv);
+
+
+
+}*/
 
 /*************************************************************************************************/
 

@@ -13,12 +13,8 @@ function save() {
     if(document.getElementById("docs_title").value.length === 0) {
         alert("제목을 입력하세요.");
     }else{
-        //var did = "599066f33c9405e4b1030dddf1bbbaaa4075";
-        //alert("시발");
         title = document.getElementById("docs_title").value;
-        //alert(title);
         body =  document.getElementById("docs_contents_container").innerHTML;
-        //alert(body);
 
         /* chrome.storage.sync.get('doc_id', async function (items) {
              alert(3333333333333);
@@ -28,8 +24,7 @@ function save() {
              }
          });
  */
-        //alert(doc_id);
-        //alert(user_id);
+
         /*
                 chrome.storage.sync.get('user_id', async function (items) {
                     alert(111111111);
@@ -73,7 +68,7 @@ function addTodoList(){
 
     //var str ='<input type="checkbox" id="todo'+todo_count+'" name="todo'+todo_count+'"style="margin-right: 8px; width: 20px; height: 20px;"/>'
 
-    var str = '<img src="images/check_off.png" id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
+    var str = '<img src="images/check_off.png id="todo_button'+todo_count+'" name="off" style="margin-right: 8px; width: 14px; height: 14px; margin-top: 2px;"><div id="todo_text' + todo_count +'" contenteditable="true" placeholder ="To-do" style="display: inline; "></div>'
     var addedDiv = document.createElement("div");
     addedDiv.setAttribute('class', 'todo');
     addedDiv.innerHTML = str;
@@ -122,7 +117,7 @@ function preventTodoEnter(count){
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
 
-    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px;"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
+    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/send-docs@3x.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px;"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
     var addedDiv = document.createElement("div");
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);

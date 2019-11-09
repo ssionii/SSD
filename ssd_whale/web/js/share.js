@@ -52,3 +52,7 @@ function setInputValue(id) {
 
     input.setAttribute("size", input.value.length + 2)
 }
+
+document.getElementById('share_back').addEventListener('click', function () {
+    history.back()
+})

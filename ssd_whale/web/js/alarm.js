@@ -53,3 +53,7 @@ function setSelectEventListener(count){
     }, false)
 
 }
+
+document.getElementById('alarm_back').addEventListener('click', function () {
+    history.back()
+})
