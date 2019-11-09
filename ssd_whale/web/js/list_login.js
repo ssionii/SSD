@@ -2,6 +2,19 @@ var list_count;
 var list;
 var doc_id;
 
+document.getElementById('login_button').addEventListener('click', login, false);
+function login(){
+
+    chrome.windows.create({url:"https://sharesdocument.ml/naver/naverlogin", type:"popup", width:200, height:100});
+}
+
+
+document.getElementById('docs_create_button').addEventListener('click', create, false);
+function create() {
+    document.location.replace("new_docs.html");
+
+}
+
 function structlist(){
     var id;
     var title;;
@@ -9,14 +22,16 @@ function structlist(){
 }
 
 var user_id = "";
-var isTrue;
 
 window.onload = function () {
 
     chrome.storage.sync.get('user_id', async function (items) {
+        // alert(111111111);
         user_id = items.user_id;
 
         if (!chrome.runtime.error) {
+
+            //alert(items.user_id);
             if (user_id == null) {
                 alert("문서를 생성해 슫을 이용해 보세요!");
             }
@@ -26,35 +41,23 @@ window.onload = function () {
 
 }
 
-document.getElementById('docs_create_button').addEventListener('click', create, false);
-function create() {
-    //if(isTrue == 1){
-        document.location.replace("new_docs.html");
-    //}
-    //else{
-    //    document.location.replace("not_new_docs.html");
-    //}
-}
-
-document.getElementById('login_button').addEventListener('click', login_, false);
-function login_(){
-    chrome.windows.create({url:"https://sharesdocument.ml/naver/naverlogin", type:"popup", width:200, height:100});
-}
 
 async function load() {
 
     var xhttp = new XMLHttpRequest();
+    //alert(1);
     try {
         xhttp.open("GET", "https://sharesdocument.ml/doc/list/" + user_id, false);
         xhttp.send(null);
 
+        //alert(xhttp.readyState);
+        //alert(xhttp.status);
         if (xhttp.readyState == 4 && xhttp.status == 201) {
             var response = JSON.parse(xhttp.responseText);
             //alert(response.message);
             user_id = response.user_id;
             list_count = response.list.length;
             list = new Array(list_count);
-            //isTrue = response.isTrue;
 
             for (var i = 0; i < list_count; i++) {
                 list[i] = new structlist();
@@ -66,6 +69,8 @@ async function load() {
     } catch (e) {
         alert(e.toString());
     }
+
+
 
     for (var i = 0; i < list_count; i++) {
 
@@ -84,12 +89,7 @@ async function load() {
                     }
                 });
 
-                //if(isTrue == 1){
-                    document.location.replace("docs.html");
-                //}
-                //else{
-                //    document.location.replace("not_docs.html");
-                //}
+                document.location.replace("docs.html");
             })
             document.getElementById("docs_list").appendChild(iDiv);
         } else {
