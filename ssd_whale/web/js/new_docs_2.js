@@ -149,33 +149,6 @@ function setToggleImgEventListener(id) {
     });
 }
 
-/*
-function setToggleTextColorEventListener(count){
-    var parentId = '#toggle_parent_text' + (count-1);
-    var childeId = '#toggle_child_text' + (count-1);
-    $(parentId).keyup(function(e) {
-        alert('no enter!')
-    });
-    $(childeId).keypress(function(e) {
-        if (e.keyCode == 13)
-            e.preventDefault();
-    });
-}*/
-
-function preventToggleEnter(count){
-    var parentId = 'toggle_parent_text' + count;
-    var childeId = 'toggle_child_text' + count;
-    $(parentId).keypress(function(e) {
-        if (e.keyCode == 13) {
-            e.preventDefault();
-        }
-    });
-    $(childeId).keypress(function(e) {
-        if (e.keyCode == 13)
-            e.preventDefault();
-    });
-}
-
 function addImage(input) {
     var addFormDiv = document.getElementById("docs_contents_container");
 
