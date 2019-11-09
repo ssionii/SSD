@@ -5,11 +5,11 @@ var doc_title;
 var todo_count;
 var toggle_count;
 
-
 document.getElementById('docs_title_emoji').addEventListener('click', back, false);
 window.onload = function () {
 
     document.getElementById("docs_contents_container").focus();
+
 
     $(function (){
         $("#ff").on("change", function (){
@@ -63,6 +63,7 @@ async function hhha() {
             doc_content = response.content;
             todo_count = response.todo_count;
             toggle_count = response.toggle_count;
+
             chrome.storage.sync.set({"doc_content": doc_content}, function () {
                 if (chrome.runtime.error) {
                     console.log("Runtime error");
@@ -72,18 +73,14 @@ async function hhha() {
             document.getElementById("docs_title").value = doc_title;
 
             for (var i = 0; i < todo_count; i++){
-                preventTodoEnter(i);
                 addTodoButtonEventListener('todo_button' + i, 'todo_text' + i);
             }
             for (var j = 0; j < toggle_count; j++){
-                setToggleImgEventListener(j);
-                setToggleTextColorEventListener(j)
-                preventToggleEnter(j)
+                setToggleImgEventListener(j,from = "add");
             }
 
         }
     }catch (e) {
-        alert(e.toString());
     }
 }
 

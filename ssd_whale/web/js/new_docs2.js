@@ -26,7 +26,6 @@ async function save1(){
 async function cibal1(){
     var http = new XMLHttpRequest();
     try {
-        http.open('Post',"https://sharesdocument.ml/doc", false );
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
         http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body + "&todo_count="+todo_count + "&toggle_count=" + toggle_count );
@@ -96,7 +95,6 @@ async function cibal(){
         alert("저장되었습니다.");
         http.open('Post',"https://sharesdocument.ml/doc", false );
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
         http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body + "&todo_count="+todo_count + "&toggle_count=" + toggle_count );
          if(http.readyState === 4 && http.status === 201){
             var response = JSON.parse(http.responseText);
@@ -168,16 +166,6 @@ function addTodoButtonEventListener(buttonId, textId) {
     todo_count++;
 }
 
-function preventTodoEnter(count){
-    var container = document.getElementById("todo_text" + count);
-    container.on('keyup', 'todo_text0', function(e) {
-        if (e.key === 'Enter' && e.target.tagName === 'MAIN') {
-            e.preventDefault();
-            alert('no enter')
-        }
-    });
-}
-
 function addToggleList(){
     var container = document.getElementById("docs_contents_container");
     var selection = window.getSelection();
@@ -186,6 +174,7 @@ function addToggleList(){
     var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/toggle_right.png"></div><div class="toggle_parent" id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px; margin-top: 3px"><div class="toggle_child" id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; " ></div></div>'
 
     var addedDiv = document.createElement("div");
+    addedDiv.setAttribute('class', 'toggle');
     addedDiv.innerHTML = str;
 
     var emptyDiv = document.createElement("div");
@@ -195,20 +184,21 @@ function addToggleList(){
     if(range.commonAncestorContainer.nodeName != 'SPAN') {
         range.insertNode(addedDiv);
 
-        setToggleImgEventListener('toggle_button' + (toggle_count));
+        setToggleImgEventListener(toggle_count);
         setToggleTextColorEventListener(toggle_count)
         preventToggleEnter(toggle_count)
-        toggle_count++;
+
     }
 }
 
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
-function setToggleImgEventListener(count) {
-    var childId = 'toggle_child' + toggle_count;
+function setToggleImgEventListener(count, from = "add") {
+    var button = 'toggle_button' + count;
+    var childId = 'toggle_child' + count;
 
-    document.getElementById(count).addEventListener('click', function(ev){
+    document.getElementById(button).addEventListener('click', function(ev){
         var obj = document.getElementById(childId)
-        var img = document.getElementById(count);
+        var img = document.getElementById(button);
 
         if(obj.style.display == "none"){
             obj.style.display = "block";
@@ -218,6 +208,9 @@ function setToggleImgEventListener(count) {
             img.src = "images/toggle_right.png"
         }
     });
+
+    if(from == "add")
+        toggle_count++;
 }
 
 function setToggleTextColorEventListener(count) {
