@@ -60,6 +60,7 @@ email_input.onkeyup = function(ev){
         document.getElementById('email_div' + share_email_count).remove()
         created = false
     }
+
 }
 
 function setSelectEventListener(count){

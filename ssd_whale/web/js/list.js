@@ -5,6 +5,7 @@ var doc_id;
 document.getElementById('docs_create_button').addEventListener('click', create, false);
 function create() {
     location.href = 'new_docs.html';
+
 }
 
 function structlist(){

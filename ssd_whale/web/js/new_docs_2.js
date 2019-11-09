@@ -41,11 +41,9 @@ function save() {
 }
 
 function cibal(){
-
-    alert(111111111);
     var http = new XMLHttpRequest();
     try {
-        http.open('Post',"https://sharesdocument.ml/doc", false );
+        http.open('POST',"https://sharesdocument.ml/doc", false );
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.send("user_id=" + user_id + "&doc_id=" + doc_id + "&doc_title=" + title + "&doc_body=" + body);
         //alert("hi");
@@ -117,7 +115,7 @@ function preventTodoEnter(count){
 function addToggleList(){
     var addFormDiv = document.getElementById("docs_contents_container");
 
-    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/send-docs@3x.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px;"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
+    var str ='<div style="display: flex; flex-direction: row"><div style="display: inline; width: 13px; height: 13px; margin-right: 5px;"><img id="toggle_button'+toggle_count +'" class="toggle_button" src="images/send-docs@3x.png"></div><div id="toggle_parent_text' + toggle_count +'" contenteditable="true" placeholder ="상위 항목을 입력하세요." style="display: inline; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;"></div></div><div id = toggle_child' + toggle_count + ' style="display: none; margin-left: 18px; margin-top: 3px"><div id="toggle_child_text' + toggle_count +'" contenteditable="true" placeholder ="하위 항목을 입력하세요." style=" height: auto; color: rgb(55, 53, 47);-webkit-text-fill-color: rgba(55, 53, 47, 0.4) ;" ></div></div>'
     var addedDiv = document.createElement("div");
     addedDiv.innerHTML = str;
     addFormDiv.appendChild(addedDiv);
@@ -129,14 +127,14 @@ function addToggleList(){
     setToggleImgEventListener('toggle_button' + (toggle_count));
     setToggleTextColorEventListener(toggle_count)
     preventToggleEnter(toggle_count)
+    toggle_count++;
 }
 
 
 // Todo: toggle img위에 커서 올려 놨을 때  1.background 생기도록, 2. cursor가 pointer이도록
 function setToggleImgEventListener(id) {
-    var childId = 'toggle_child' + toggle_count;
+    var childId = '#toggle_child' + toggle_count;
 
-    toggle_count++;
     document.getElementById(id).addEventListener('click', function(ev){
         var obj = document.getElementById(childId)
         var img = document.getElementById(id);
@@ -151,21 +149,22 @@ function setToggleImgEventListener(id) {
     });
 }
 
+/*
 function setToggleTextColorEventListener(count){
-    var parentId = 'toggle_parent_text' + (count-1);
-    var childeId = 'toggle_child_text' + (count-1);
+    var parentId = '#toggle_parent_text' + (count-1);
+    var childeId = '#toggle_child_text' + (count-1);
     $(parentId).keyup(function(e) {
-
+        alert('no enter!')
     });
     $(childeId).keypress(function(e) {
         if (e.keyCode == 13)
             e.preventDefault();
     });
-}
+}*/
 
 function preventToggleEnter(count){
-    var parentId = 'toggle_parent_text' + (count-1);
-    var childeId = 'toggle_child_text' + (count-1);
+    var parentId = 'toggle_parent_text' + count;
+    var childeId = 'toggle_child_text' + count;
     $(parentId).keypress(function(e) {
         if (e.keyCode == 13) {
             e.preventDefault();

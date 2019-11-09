@@ -9,6 +9,7 @@
     <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
 
+
     <script src="path/jquery-3.3.1.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -35,11 +36,8 @@
             <div id="docs_button_save"><img src="images/save-docs.png"/></div>
         </div>
         <div id="top_element2">
-            <div id="add_file" style="text-align: center; display: flex; flex-direction: column; margin-left: 21px; margin-right: 23px;">
-                <span style=""><img src="images/file-icon.png"/></span>
-                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
-            </div>
-            <span id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px;" >
+
+            <span id="add_todolist" style="text-align: center; display: flex; flex-direction: column; margin-right: 12px; margin-left:21px" >
                 <span id="add_todolist_image"><img src="images/checklist-icon.png"/></span>
                <input type="button" value="체크리스트" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </span>
@@ -53,22 +51,50 @@
             </div>
             <div style="overflow: hidden; width: 30px; height: 30px;">
                 <div style="width:30px;height:30px;position: absolute;overflow: hidden; ">
-                    <input style="font-size: 30px; right: 0px; position: absolute; top: 0px" type="file" onchange="addImage(this)" />
+                    <input style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file" onchange="addImage(this)" />
                 </div>
             </div>
-            <div id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none">
+            <span id="add_photo" class="add_elements" style="text-align: center; display: flex; flex-direction: column; position: relative; left: -30px; pointer-events: none; cursor: pointer">
                 <span style=""><img src="images/photo-icon.png"/></span>
                 <input type="button" value="그림" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+            </span>
+            <div style="overflow: hidden; width: 30px; height: 30px;">
+                <div style="width:30px;height:30px;position: absolute; overflow: hidden; ">
+                    <input id="add_file" style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file">
+                </div>
             </div>
+            <span id="" style="text-align: center; display: flex; flex-direction: column;margin-right: 23px; position: relative; left: -30px; pointer-events: none; cursor:pointer;" >
+                <span style=""><img src="images/file-icon.png"/></span>
+                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+            </span>
+
         </div>
         <div id="top_element3">
             <div id="set_font_family" style="border-right: 0.2px solid #dddddd;" >
-                <span id="font_family_text">나눔고딕</span>
-                <span style="margin-right: 7px; margin-left: 10px"><img src="images/angle-arrow-down.png" /></span>
+                <select name="ff" id="ff" class="font_family" style="font-size: 14px; ">
+                    <option value="dotum,'돋움',sans-serif ">돋움</option>
+                    <option value="gulim, '굴림', sans-serif">굴림</option>
+                    <option value="magun gothic, '맑은고딕', sans-serif">맑은고딕</option>
+                    <option value="gungsuh, '궁서', serif">궁서</option>
+                </select>
             </div>
             <div id="set_font_size" style="border-right: 0.2px solid #dddddd;" >
-                <span id="font_size_text">15</span>
-                <span style="margin-right: 7px; margin-left: 10px"><img src="images/angle-arrow-down.png" /></span>
+                <select name="fs" id="fs" class="font_size" style="font-size: 14px; margin-right: 3px ">
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="11" selected>11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="24">24</option>
+                    <option value="32">32</option>
+                    <option value="40">40</option>
+                    <option value="52">52</option>
+                    <option value="72">52</option>
+                </select>
             </div>
             <div id="set_font_style" style="border-right: 0.2px solid #dddddd;">
                 <div id="font_bold_text" style="margin-right: 12px"><b>B</b></div>
@@ -85,13 +111,20 @@
                 <div id="align_right" style="margin-right: 6px"><img src="images/align-right-off.png"/></div>
                 <div id="line_spacing"><img src="images/line-spacing-off.png"/></div>
             </div>
+
+
+
         </div>
     </div>
     <script src="js/docs.js"></script>
-    <div id="docs_contents_container", contenteditable="true">
 
-    </div>
+        <div id="docs_contents_container", droppable="true", contenteditable="true">
+        </div>
+
+
     <script src="js/docs2.js"></script>
+    <script src="js/addElements.js"></script>
+
 </div>
 <!--
 <script type="text/javascript">

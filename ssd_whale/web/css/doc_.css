@@ -51,8 +51,33 @@
     padding-left: 7px;
     padding-top: 6px;
 }
+#set_font_size{
+    padding-right: 5px;
+}
 
 #font_family_text, #font_size_text{
+    font-size: 11px;
+    font-family: "Nanum Gothic";
+    margin-right: 10px;
+}
+
+.font_family{
+    border: none;
+    background: white;
+    font-size: 11px;
+    font-family: "Nanum Gothic";
+    margin-right: 10px;
+}
+
+.font_size{
+    border: none;
+    background: white;
+    font-size: 11px;
+    font-family: "Nanum Gothic";
+    margin-right: 10px;
+    width: 50px;
+}
+option{
     font-size: 11px;
     font-family: "Nanum Gothic";
     margin-right: 10px;
@@ -117,10 +142,50 @@
     width: 100%;
 }
 
+.todo_text{
+    color: black;
+}
+
+.todo_text[placeholder]:empty:before {
+    content:attr(placeholder);
+    color: #cccccc;
+}
+
+
+.toggle_parent{
+    color: black;
+}
+
+.toggle_parent[placeholder]:empty:before {
+    content:attr(placeholder);
+    color: #cccccc;
+}
+
+
+.toggle_child{
+    color: black;
+}
+
+.toggle_child[placeholder]:empty:before {
+    content:attr(placeholder);
+    color: #cccccc;
+}
+
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #cccccc;
 }
+
+.file_container{
+    padding: 10px;
+    float: left;
+    display: block;
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+.file_container::after { content: ' '; display: block; clear: both }
+
 
 
 /** 승맹이 드롭다운 **/
