@@ -15,7 +15,6 @@ window.onload = function () {
 
     chrome.storage.sync.get('user_id', async function (items) {
         user_id = items.user_id;
-
         if (!chrome.runtime.error) {
             if (user_id == null) {
                 alert("문서를 생성해 슫을 이용해 보세요!");
@@ -38,7 +37,7 @@ function create() {
 
 document.getElementById('login_button').addEventListener('click', login_, false);
 function login_(){
-    chrome.windows.create({url:"https://sharesdocument.ml/naver/naverlogin", type:"popup", width:200, height:100});
+    chrome.windows.create({url:"https://sharesdocument.ml/naver/naverlogin", type:"popup", width:500, height:500});
 }
 
 async function load() {
@@ -107,6 +106,7 @@ async function load() {
             ddiv.addEventListener('click', function (ev) {
                 doc_id = this.id;
 
+                alert(doc_id);
                 chrome.storage.sync.set({"doc_id": doc_id}, function () {
                     if (chrome.runtime.error) {
                         console.log("Runtime error");

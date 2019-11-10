@@ -387,6 +387,37 @@ function setFontColor(){
 
 }
 
+
+function setFontColor(){
+    var textColorBox = true;
+    var colorContainer = document.getElementById("color_container");
+    if(textColorBox){
+        colorContainer.style.visibility="visible";
+        //var RGB="000000#FFFFFF#FFCCFF#FF99FF#FF66FF#FF33FF#FF00FF#FFFFCC#FFCCCC#FF99CC#FF66CC#FF33CC#FF00CC#FFFF99#FFCC99#FF9999#FF6699#FF3399#FF0099#FFFF66#FFCC66#FF9966#FF6666#FF3366#FF0066#FFFF33#FFCC33#FF9933#FF6633#FF3333#FF0033#FFFF00#FFCC00#FF9900#FF6600#FF3300#FF0000#CCFFFF#CCCCFF#CC99FF#CC66FF#CC33F#CC00FF#CCFFCC#CCCCCC#CC99CC#CC66CC#CC33CC#CC00CC#CCFF00#CCCC99#CC9999#CC6699#CC3399#CC0099#CCFF66#CCCC66#CC9966#CC6666#CC3366#CC0066#CCFF33#CCCC33#CC9933#CC6633#CC3333#CC0033#CCFF00#CCCC00#CC9900#CC6600#CC3300#CC0000#99FFFF#99CCFF#9999FF#9966FF#9933FF#9900FF#99FFCC#99CCCC#9999CC#9966CC#9933CC#9900CC#99FF99#99CC99#999999#996699#993399#990099#99FF66#99CC66#999966#996666#993366#990066#99FF33#99CC33#999933#996633#993333#990033#99FF00#99CC00#999900#996600#993300#990000#66FFFF#66CCFF#6699FF#6666FF#6633FF#6600FF#66FFCC#66CCCC#6699CC#6666CC#6633CC#6600CC#66FF99#66CC99#669999#666699#663399#660099#66FF66#66CC66#669966#666666#663366#660066#66FF33#66CC33#669933#666633#663333#660033#66FF00#66CC00#669900#666600#663300#660000#33FFFF#33CCFF#3399FF#3366FF#3333FF#3300FF#33FFCC#33CCCC#3399CC#3366CC#3333CC#3300CC#33FF99#33CC99#339999#336699#333399#330099#33FF66#33CC66#339966#336666#333366#330066#33FF33#33CC33#339933#336633#333333#330033#33FF00#33CC00#339900#336600#333300#330000#00FFFF#00CCFF#0099FF#0066FF#0033FF#0000FF#00FFCC#00CCCC#0099CC#0066CC#0033CC#0000CC#00FF99#00CC99#009999#006699#003399#000099#00FF66#00CC66#009966#006666#003366#000066#00FF33#00CC33#009933#006633#003333#000033#00FF00#00CC00#009900#006600#003300#000000";
+        var RGB = "#A06641#FF0000#FF9473#FFF56E#FF32B1#FFAAAF#C6FF70#3DFF92#93DAFF#96A5FF#"
+        var RGBColorArray=RGB.split("#");
+        var tag="<select name='fc' id='fc' style='background-color: white; border: none'>";
+        for(var i=1;i<RGBColorArray.length;){
+            for(var j=0;j<5;j++){
+                tag=tag+ '<option value="#' +RGBColorArray[i]+ '">' + RGBColorArray[i] + '</option>';
+                i++;
+                if(RGBColorArray.length==i) break;
+            }
+        }
+        tag=tag+"</select>";
+
+>>>>>>> a14128ffc8dd067615d45f401da80e641e82bd22
+        colorContainer.innerHTML=tag;
+        textColorBox=false;
+    }
+    else{
+        colorContainer.style.visibility="hidden";
+        colorContainer.innerHTML="";
+        textColorBox=true;
+    }
+
+}
+
 function clickTodo(id){
     var obj = document.getElementById(id);
     obj.style.background = rgb(255, 142, 80);
@@ -399,3 +430,4 @@ function addNotionTodoList(){
     var text = '<div style="flex: 1 1 0px; min-width: 1px; display: flex; flex-direction: column;"> <div> <div contenteditable="true"  style="max-width: 100%; padding-top: 3px; padding-bottom: 3px; text-align: left; text-decoration: line-through; opacity: 0.375;"></div></div><div></div></div>'
     var str = '<div class="todo" style="width: 100%; max-width: 100%; margin-top: 1px; margin-bottom: 1px; position: relative;"><div style="display: flex; align-items: flex-start; width: 100%; padding-left: 2px; color: inherit; fill:inherit">' + button + text +'</div></div>'
 }
+

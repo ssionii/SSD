@@ -91,8 +91,8 @@ option{
 
 #set_font_style{
     padding-top: 7px;
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-left: 18px;
+    padding-right: 18px;
 
     display: flex;
     flex-direction: row;
@@ -100,8 +100,8 @@ option{
 
 #set_font_color{
     padding-top: 7px;
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-left: 18px;
+    padding-right: 18px;
 
     display: flex;
     flex-direction: row;
@@ -138,6 +138,10 @@ option{
 }
 
 [contenteditable=true]{
+    outline: none;
+}
+
+select{
     outline: none;
 }
 
@@ -214,7 +218,7 @@ option{
     right: 10px;    /*드롭다운 위치 조절*/
     left: auto;
     background-color: #f1f1f1;
-    min-width: 100px;
+    min-width: 110px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
