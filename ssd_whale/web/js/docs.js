@@ -35,6 +35,7 @@ window.onload = function () {
     chrome.storage.sync.get('user_id', async function (items) {
         user_id = items.user_id;
         if (!chrome.runtime.error) {
+            alert(user_id);
         }
         await hhhhha();
     });
@@ -44,6 +45,7 @@ async function hhhhha(){
     chrome.storage.sync.get('doc_id', async function (items) {
         doc_id = items.doc_id;
         if (!chrome.runtime.error) {
+            alert(doc_id);
         }
         await hhha();
     });
@@ -64,6 +66,9 @@ async function hhha() {
             todo_count = response.todo_count;
             toggle_count = response.toggle_count;
 
+            alert(doc_id);
+            alert(doc_title);
+            alert(doc_content);
             chrome.storage.sync.set({"doc_content": doc_content}, function () {
                 if (chrome.runtime.error) {
                     console.log("Runtime error");
