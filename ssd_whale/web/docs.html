@@ -7,16 +7,18 @@
     <title>Title</title>
     <script src="js/prevent.js"></script>
     <script src="js/jquery-latest.min.js"></script>
-
     <script src="path/jquery-3.4.1.js"></script>
 </head>
 <body>
 <div id = "docs_fixed_top" style="position: fixed; width: 100%; right: 0; background-color: white;" >
     <div class="docs_top_element" style="display: flex; flex-direction: column;">
         <div id="top_element1" style="height: 54px; width: 100%;" >
-            <div id="docs_title_emoji"  style="height:100%; width: 50px; float: left">
-                <img src="images/ssd-logo.png" style="height:40px; width:40px;float:left; margin-left: 5px; margin-top: 5px">
+            <div id="docs_title_emoji_container"  style="height:100%; width: 50px; float: left">
+               <input type="text" id="docs_title_emoji" value="😁" maxlength="1">
+                <!--<div id="docs_title_emoji", contentEditable="true">&#x1F601;</div>-->
             </div>
+
+
             <div id="docs_title_container">
                 <input type="text" placeholder="제목을 입력하세요." id="docs_title" name="docs_title" />
             </div>
@@ -52,12 +54,14 @@
             </span>
             <div style="overflow: hidden; width: 30px; height: 30px;">
                 <div style="width:30px;height:30px;position: absolute; overflow: hidden; ">
-                    <input id="add_file" style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file">
+                    <form id ="file_form" method="post" enctype="multipart/form-data" action="" style="margin-top: -1px">
+                        <input id="add_file" name="add_file" style="font-size: 30px; color: rgba(0, 0, 0, 0); right: 0px; position: absolute; top: 0px" type="file">
+                    </form>
                 </div>
             </div>
             <span id="" style="text-align: center; display: flex; flex-direction: column;margin-right: 23px; position: relative; left: -30px; pointer-events: none; cursor:pointer;" >
                 <span style=""><img src="images/file-icon@3x.png" style="height: 16px; width: 16px"/></span>
-                <input type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
+                <input id="file" type="button" value="파일" style="margin: 0; border:none; background: none; font-size: 9px; padding: 0"/>
             </span>
 
         </div>
@@ -99,9 +103,9 @@
             </div>
         </div>
     </div>
-
     <script src="js/docs.js"></script>
     <div id="docs_contents_container" contenteditable="true">
+        &#x1F601;
 
     </div>
 

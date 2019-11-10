@@ -10,27 +10,40 @@ window.onload = function () {
 
     document.getElementById("docs_contents_container").focus();
 
-
+    // 글씨체 및 글씨 크기
     $(function (){
-        $("#ff").on("change", function (){
-            var _range = window.getSelection().getRangeAt(0);
-            var _node = document.createElement('span');
-            _node.innerHTML = '<font style="font-family: '+ $(this).val() + '">' + _range.toString() + '</font>'
-            if (_node) _node = _node.childNodes[0];
-            _range.deleteContents();
-            _range.insertNode(_node);
+        $("#ff").on("change", function () {
+
+            insertNode('<font style="font-family: ' + $(this).val() + '">')
         });
 
         $("#fs").on("change", function (){
-            var _range = window.getSelection().getRangeAt(0);
-            var _node = document.createElement('span');
-            _node.innerHTML = '<font style="font-size: '+ $(this).val() +"px" + '">' + _range.toString() + '</font>'
-            if (_node) _node = _node.childNodes[0];
-            _range.deleteContents();
-            _range.insertNode(_node);
-
+            insertNode('<font style="font-size: '+ $(this).val() + 'px">')
         });
-    })
+
+        /*
+        $("#fc").on("change", function(){
+            insertNode('<font style = "color: ' + $(this).val() + '">')
+
+        });*/
+
+
+    });
+
+    if(document.getElementById("docs_title").value.length === 0) {
+        alert("제목을 입력하세요.");
+    }else{
+        title = document.getElementById("docs_title").value;
+        body =  document.getElementById("docs_contents_container").innerHTML;
+
+        chrome.storage.sync.get('doc_content', async function (items) {
+            doc_content = items.doc_content;
+            if (!chrome.runtime.error) {
+            }
+            await ha1();
+        });
+        document.location.replace('share.html');
+    }
 
     chrome.storage.sync.get('user_id', async function (items) {
         user_id = items.user_id;
@@ -39,6 +52,8 @@ window.onload = function () {
         }
         await hhhhha();
     });
+
+
 }
 
 async function hhhhha(){

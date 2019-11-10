@@ -26,6 +26,15 @@ body div{
     alignment: top;
 }
 
+.doc_title{
+    float: left;
+    margin-left: 12px;
+    padding-top: 9px;
+    font-size: 18px;
+    color: black
+
+}
+
 .top_button{
     float: right;
     margin-right: 15px;

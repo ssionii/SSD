@@ -11,6 +11,10 @@ function uploadSubmit() {
         return false;
     }
 
+    var form = $('#file_form')[0];
+    var formData = new FormData(form);
+    formData.append("add_file", file)
+
     // 파일 확장자 체크 -> 얘로 div에 들어갈 이미지 판단
     var fileEtx = fileName.slice(fileName.indexOf(".") + 1).toLowerCase();
     if(fileEtx != "pdf" && fileEtx != "doc" && fileEtx != "docx" && fileEtx !="hwp" && fileEtx != "txt"){
@@ -21,31 +25,34 @@ function uploadSubmit() {
     var fileTitle = fileName.substring(fileName.lastIndexOf("\\") + 1, fileName.lastIndexOf("."));
 
     // 사이즈 체크
-    var maxSize = 10*1024*1024 // 10MB
+    var maxSize = 2*1024*1024 // 10MB
     var fileSize = file.files[0].size;
 
     var fileSize2 = (fileSize / 1024) /1024;
     var fileSize_mb = fileSize2.toFixed(2);
 
     if(fileSize > maxSize){
-        alert("첨부하신 파일 사이즈는 " + fileSize_mb + "MB 입니다.\n첨부하실 파일 사이즈는 10MB 이내로 등록 가능합니다.");
+        alert("첨부하신 파일 사이즈는 " + fileSize_mb + "MB 입니다.\n첨부하실 파일 사이즈는 2MB 이내로 등록 가능합니다.");
         return false;
     }
 
     $.ajax({
 
-        url : "livechat_insert.asp?mode=upload",
-
-        processData : false,
-
-        contentType : false,
-
+        url : "https://sharesdocument.ml/doc/file",
         type : "POST",
+        data: formData,
+        processData: false,
 
         error : function(){
 
             alert('파일 업로드 실패.');
 
+        },
+
+        success : function(data){
+
+            alert('통신 성공');
+            alert(data)
             var selection = window.getSelection();
             var range = selection.getRangeAt(0);
 
@@ -71,12 +78,6 @@ function uploadSubmit() {
 
                 file_count++;
             }
-
-        },
-
-        success : function(data){
-
-            alert('통신 성공')
 
         }
 

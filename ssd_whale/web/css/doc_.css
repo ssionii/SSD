@@ -2,6 +2,20 @@
     border-bottom: 0.2px solid #dddddd;
 }
 
+#docs_title_emoji{
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+
+    height:40px;
+    width:40px;
+    font-size: 36px;
+
+    float:left;
+    border: none;
+    outline: none
+}
+
 #docs_title{
     font-size: 20px;
     font-weight: 600;

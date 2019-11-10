@@ -17,7 +17,7 @@ async function share() {
 async function save1() {
 
 }
-
+/*
 window.onload = function() {
     document.getElementById("docs_contents_container").focus();
 
@@ -35,7 +35,7 @@ window.onload = function() {
         $("#fc").on("change", function(){
             insertNode('<font style = "color: ' + $(this).val() + '">')
 
-        });*/
+        });
 
 
     });
@@ -54,7 +54,7 @@ window.onload = function() {
         });
         document.location.replace('share.html');
     }
-}
+}*/
 
 
 function insertNode(str){

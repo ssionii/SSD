@@ -4,6 +4,7 @@ var doc_id;
 
 function structlist(){
     var id;
+    var emoji;
     var title;;
     var share;
 }
@@ -58,6 +59,7 @@ async function load() {
             for (var i = 0; i < list_count; i++) {
                 list[i] = new structlist();
                 list[i].id = response.list[i].doc_id;
+                list[i].emoji = response.list[i].doc_emoji;
                 list[i].title = response.list[i].doc_title;
                 list[i].share = response.list[i].doc_is_share;
             }
@@ -69,6 +71,31 @@ async function load() {
     for (var i = 0; i < list_count; i++) {
 
         if (list[i].share == 0) {
+
+            var container = document.getElementById("docs_list")
+
+            var str = '<div class="doc" style="height: 40px; padding-top: 4px; padding-bottom: 13px;"> <span class="doc_emoji" style="float: left; font-size: 30px; margin-left: 12px">&#x1F601;</span> <div class="doc_title">' + list[i].title + '</div> </div>'
+            var _div = document.createElement('div');
+            _div.setAttribute("id", list[i].id);
+            _div.setAttribute("class", "docdoc");
+            _div.innerHTML = str;
+
+
+            _div.addEventListener('click', function(ev){
+                doc_id = this.id;
+
+                alert(doc_id);
+                chrome.storage.sync.set({"doc_id": doc_id}, function () {
+                    if (chrome.runtime.error) {
+                        console.log("Runtime error");
+                    }
+                });
+
+                document.location.replace("docs.html");
+            })
+            container.appendChild(_div);
+
+            /* 승맹 코드
             var iDiv = document.createElement('div');
 
             iDiv.setAttribute("class", "docdoc");
@@ -90,9 +117,33 @@ async function load() {
                 //    document.location.replace("not_docs.html");
                 //}
             })
-            document.getElementById("docs_list").appendChild(iDiv);
+            document.getElementById("docs_list").appendChild(iDiv);*/
         } else {
 
+            var container = document.getElementById("docs_list")
+
+            var str = '<div class="doc" style="height: 40px; padding-top: 13px; padding-bottom: 13px;"> <span class="doc_emoji" style="float: left; font-size: 30px; margin-left: 16px">&#x1F601;</span> <div class="doc_title">' + list[i].title + '</div> <img src="images/shared_docs/shared_docs@3x.png" style="width: 16px; height: 16px; float: right; margin-right: 20px; margin-top: 10px;"> </div>'
+            var _div = document.createElement('div');
+            _div.setAttribute("id", list[i].id);
+            _div.setAttribute("class", "docdoc");
+            _div.innerHTML = str;
+
+
+            _div.addEventListener('click', function(ev){
+                doc_id = this.id;
+
+                alert(doc_id);
+                chrome.storage.sync.set({"doc_id": doc_id}, function () {
+                    if (chrome.runtime.error) {
+                        console.log("Runtime error");
+                    }
+                });
+
+                document.location.replace("docs.html");
+            })
+            container.appendChild(_div);
+
+            /* 승맹 코드
             var str = '<img src= "images/shared_docs/shared_docs.png"/>'
             var str_ = '<div>' + list[i].title + '</div>';
 
@@ -117,6 +168,7 @@ async function load() {
             })
 
             document.getElementById("docs_list").appendChild(ddiv);
+             */
         }
     }
     chrome.storage.sync.set({"user_id": user_id}, function () {
