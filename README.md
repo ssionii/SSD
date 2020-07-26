@@ -18,7 +18,7 @@
 #### 서비스 화면
 1. 네이버 로그인
 
-<img width="150" alt="네이버 로그인" src="https://user-images.githubusercontent.com/37260938/88471311-12990c80-cf43-11ea-81f1-8cf5f1b19d0f.png">
+<img width="250" alt="네이버 로그인" src="https://user-images.githubusercontent.com/37260938/88471311-12990c80-cf43-11ea-81f1-8cf5f1b19d0f.png">
 
 네이버 로그인을 통해 네이버 회원간이 문서 공유 (로그인 없이도 쓷 사용 가능)
 
@@ -26,7 +26,7 @@
 
 2. 문서 목록
 
-<img width="150" alt="문서 목록" src="https://user-images.githubusercontent.com/37260938/88471332-4aa04f80-cf43-11ea-9bde-2ff15e82d27c.png">
+<img width="250" alt="문서 목록" src="https://user-images.githubusercontent.com/37260938/88471332-4aa04f80-cf43-11ea-9bde-2ff15e82d27c.png">
 
 
 내가 작성한 문서와 함께 공유하는 문서를 한눈에 볼 수 있음
@@ -35,7 +35,7 @@
 
 3. 문서 공유
 
-<img width="150" alt="문서 공유" src="https://user-images.githubusercontent.com/37260938/88471343-5be95c00-cf43-11ea-90af-16ffe7508f1c.png">
+<img width="250" alt="문서 공유" src="https://user-images.githubusercontent.com/37260938/88471343-5be95c00-cf43-11ea-90af-16ffe7508f1c.png">
 
 
 내가 작성한 문서를 다른 사람과 공유하여 작성 가능
@@ -44,7 +44,7 @@
 
 4. 문서 작성
 
-<img width="205" alt="문서 작성" src="https://user-images.githubusercontent.com/37260938/88471356-86d3b000-cf43-11ea-9df8-193f385b0158.png">
+<img width="250" alt="문서 작성" src="https://user-images.githubusercontent.com/37260938/88471356-86d3b000-cf43-11ea-9df8-193f385b0158.png">
 
 
 문서를 대표하는 귀여운 이모티콘, 다양한 문서 편집 기능 제공, 상위와 하위 내용을 보기 쉽게 정리하는 토글, 나의 할 일을 간편하게 정리할 수 있는 투두 리스트, 파일, 이미지 첨부 기능 제공, 드래그앤 드롭으로 이미지와 글을 쉽게 작성
@@ -54,9 +54,9 @@
 5. 변경 사항 알림 전송
 
 
-<img width="150" alt="알림 기능" src="https://user-images.githubusercontent.com/37260938/88471365-98b55300-cf43-11ea-9fde-1c3216970cc1.png">
+<img width="250" alt="알림 기능" src="https://user-images.githubusercontent.com/37260938/88471365-98b55300-cf43-11ea-9fde-1c3216970cc1.png">
 
-<img width="171" alt="알림 전송" src="https://user-images.githubusercontent.com/37260938/88471368-a1a62480-cf43-11ea-8ac5-1cef045ec8af.png">
+<img width="300" alt="알림 전송" src="https://user-images.githubusercontent.com/37260938/88471368-a1a62480-cf43-11ea-8ac5-1cef045ec8af.png">
 
 
 문서가 공유문서라면, 원하는 사람에게 알림 전송 가능
